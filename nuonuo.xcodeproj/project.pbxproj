@@ -7,14 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B502BEEE23779EB200F6C81A /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B502BEED23779EB200F6C81A /* PersonalViewController.m */; };
+		B502BEF62377A8E800F6C81A /* PersonalHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = B502BEF52377A8E800F6C81A /* PersonalHeadView.m */; };
+		B502BEF82377A97200F6C81A /* PersonalHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B502BEF72377A97200F6C81A /* PersonalHeadView.xib */; };
+		B502BEFD2377B6CA00F6C81A /* PersonalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B502BEFB2377B6CA00F6C81A /* PersonalTableViewCell.m */; };
+		B502BEFE2377B6CA00F6C81A /* PersonalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B502BEFC2377B6CA00F6C81A /* PersonalTableViewCell.xib */; };
+		B5C5AFF5237712760047A1FD /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C5AFF3237712760047A1FD /* HomeViewController.m */; };
+		B5C5AFF6237712760047A1FD /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5C5AFF4237712760047A1FD /* HomeViewController.xib */; };
+		B5C5AFFC237715E20047A1FD /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C5AFFB237715E20047A1FD /* TabBarViewController.m */; };
 		B5EC4BDA2376E5BB00950CFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5EC4BD92376E5BB00950CFD /* AppDelegate.m */; };
-		B5EC4BDD2376E5BB00950CFD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5EC4BDC2376E5BB00950CFD /* ViewController.m */; };
-		B5EC4BE02376E5BB00950CFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5EC4BDE2376E5BB00950CFD /* Main.storyboard */; };
 		B5EC4BE22376E5BE00950CFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5EC4BE12376E5BE00950CFD /* Assets.xcassets */; };
 		B5EC4BE52376E5BE00950CFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5EC4BE32376E5BE00950CFD /* LaunchScreen.storyboard */; };
 		B5EC4BE82376E5BE00950CFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B5EC4BE72376E5BE00950CFD /* main.m */; };
 		B5EC4BF22376E5BE00950CFD /* nuonuoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B5EC4BF12376E5BE00950CFD /* nuonuoTests.m */; };
 		B5EC4BFD2376E5BE00950CFD /* nuonuoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B5EC4BFC2376E5BE00950CFD /* nuonuoUITests.m */; };
+		B5EC4C0D2376E98800950CFD /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5EC4C0B2376E98800950CFD /* RegistViewController.m */; };
+		B5EC4C0E2376E98800950CFD /* RegistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5EC4C0C2376E98800950CFD /* RegistViewController.xib */; };
+		B5EC4C122376EA3F00950CFD /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5EC4C102376EA3F00950CFD /* LoginViewController.m */; };
+		B5EC4C132376EA3F00950CFD /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5EC4C112376EA3F00950CFD /* LoginViewController.xib */; };
+		B5EC4C172376EBBF00950CFD /* ForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5EC4C152376EBBF00950CFD /* ForgetViewController.m */; };
+		B5EC4C182376EBBF00950CFD /* ForgetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5EC4C162376EBBF00950CFD /* ForgetViewController.xib */; };
+		B5EC4C1B2376F3D700950CFD /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B5EC4C1A2376F3D700950CFD /* UserInfo.m */; };
+		B5EC4C1F2376F69200950CFD /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5EC4C1D2376F69200950CFD /* MainViewController.m */; };
+		B5EC4C202376F69200950CFD /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5EC4C1E2376F69200950CFD /* MainViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,12 +50,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B502BEEC23779EB200F6C81A /* PersonalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalViewController.h; sourceTree = "<group>"; };
+		B502BEED23779EB200F6C81A /* PersonalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
+		B502BEF42377A8E800F6C81A /* PersonalHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalHeadView.h; sourceTree = "<group>"; };
+		B502BEF52377A8E800F6C81A /* PersonalHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalHeadView.m; sourceTree = "<group>"; };
+		B502BEF72377A97200F6C81A /* PersonalHeadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonalHeadView.xib; sourceTree = "<group>"; };
+		B502BEFA2377B6CA00F6C81A /* PersonalTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalTableViewCell.h; sourceTree = "<group>"; };
+		B502BEFB2377B6CA00F6C81A /* PersonalTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalTableViewCell.m; sourceTree = "<group>"; };
+		B502BEFC2377B6CA00F6C81A /* PersonalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonalTableViewCell.xib; sourceTree = "<group>"; };
+		B5C5AFF2237712760047A1FD /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		B5C5AFF3237712760047A1FD /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		B5C5AFF4237712760047A1FD /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		B5C5AFFA237715E20047A1FD /* TabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		B5C5AFFB237715E20047A1FD /* TabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 		B5EC4BD52376E5BB00950CFD /* nuonuo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nuonuo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5EC4BD82376E5BB00950CFD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B5EC4BD92376E5BB00950CFD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B5EC4BDB2376E5BB00950CFD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B5EC4BDC2376E5BB00950CFD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		B5EC4BDF2376E5BB00950CFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B5EC4BE12376E5BE00950CFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5EC4BE42376E5BE00950CFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5EC4BE62376E5BE00950CFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +76,20 @@
 		B5EC4BF82376E5BE00950CFD /* nuonuoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nuonuoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5EC4BFC2376E5BE00950CFD /* nuonuoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nuonuoUITests.m; sourceTree = "<group>"; };
 		B5EC4BFE2376E5BE00950CFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5EC4C0A2376E98800950CFD /* RegistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
+		B5EC4C0B2376E98800950CFD /* RegistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
+		B5EC4C0C2376E98800950CFD /* RegistViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistViewController.xib; sourceTree = "<group>"; };
+		B5EC4C0F2376EA3F00950CFD /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		B5EC4C102376EA3F00950CFD /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		B5EC4C112376EA3F00950CFD /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		B5EC4C142376EBBF00950CFD /* ForgetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForgetViewController.h; sourceTree = "<group>"; };
+		B5EC4C152376EBBF00950CFD /* ForgetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForgetViewController.m; sourceTree = "<group>"; };
+		B5EC4C162376EBBF00950CFD /* ForgetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgetViewController.xib; sourceTree = "<group>"; };
+		B5EC4C192376F3D700950CFD /* UserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		B5EC4C1A2376F3D700950CFD /* UserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		B5EC4C1C2376F69200950CFD /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		B5EC4C1D2376F69200950CFD /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		B5EC4C1E2376F69200950CFD /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +117,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B502BEF92377B69D00F6C81A /* Personal View */ = {
+			isa = PBXGroup;
+			children = (
+				B502BEEC23779EB200F6C81A /* PersonalViewController.h */,
+				B502BEED23779EB200F6C81A /* PersonalViewController.m */,
+				B502BEF42377A8E800F6C81A /* PersonalHeadView.h */,
+				B502BEF52377A8E800F6C81A /* PersonalHeadView.m */,
+				B502BEF72377A97200F6C81A /* PersonalHeadView.xib */,
+				B502BEFA2377B6CA00F6C81A /* PersonalTableViewCell.h */,
+				B502BEFB2377B6CA00F6C81A /* PersonalTableViewCell.m */,
+				B502BEFC2377B6CA00F6C81A /* PersonalTableViewCell.xib */,
+			);
+			path = "Personal View";
+			sourceTree = "<group>";
+		};
 		B5EC4BCC2376E5BB00950CFD = {
 			isa = PBXGroup;
 			children = (
@@ -103,9 +157,18 @@
 			children = (
 				B5EC4BD82376E5BB00950CFD /* AppDelegate.h */,
 				B5EC4BD92376E5BB00950CFD /* AppDelegate.m */,
-				B5EC4BDB2376E5BB00950CFD /* ViewController.h */,
-				B5EC4BDC2376E5BB00950CFD /* ViewController.m */,
-				B5EC4BDE2376E5BB00950CFD /* Main.storyboard */,
+				B5EC4C192376F3D700950CFD /* UserInfo.h */,
+				B5EC4C1A2376F3D700950CFD /* UserInfo.m */,
+				B5EC4C1C2376F69200950CFD /* MainViewController.h */,
+				B5EC4C1D2376F69200950CFD /* MainViewController.m */,
+				B5EC4C1E2376F69200950CFD /* MainViewController.xib */,
+				B5C5AFF2237712760047A1FD /* HomeViewController.h */,
+				B5C5AFF3237712760047A1FD /* HomeViewController.m */,
+				B5C5AFF4237712760047A1FD /* HomeViewController.xib */,
+				B5C5AFFA237715E20047A1FD /* TabBarViewController.h */,
+				B5C5AFFB237715E20047A1FD /* TabBarViewController.m */,
+				B502BEF92377B69D00F6C81A /* Personal View */,
+				B5EC4C212376F6DD00950CFD /* Login View */,
 				B5EC4BE12376E5BE00950CFD /* Assets.xcassets */,
 				B5EC4BE32376E5BE00950CFD /* LaunchScreen.storyboard */,
 				B5EC4BE62376E5BE00950CFD /* Info.plist */,
@@ -130,6 +193,22 @@
 				B5EC4BFE2376E5BE00950CFD /* Info.plist */,
 			);
 			path = nuonuoUITests;
+			sourceTree = "<group>";
+		};
+		B5EC4C212376F6DD00950CFD /* Login View */ = {
+			isa = PBXGroup;
+			children = (
+				B5EC4C0F2376EA3F00950CFD /* LoginViewController.h */,
+				B5EC4C102376EA3F00950CFD /* LoginViewController.m */,
+				B5EC4C112376EA3F00950CFD /* LoginViewController.xib */,
+				B5EC4C0A2376E98800950CFD /* RegistViewController.h */,
+				B5EC4C0B2376E98800950CFD /* RegistViewController.m */,
+				B5EC4C0C2376E98800950CFD /* RegistViewController.xib */,
+				B5EC4C142376EBBF00950CFD /* ForgetViewController.h */,
+				B5EC4C152376EBBF00950CFD /* ForgetViewController.m */,
+				B5EC4C162376EBBF00950CFD /* ForgetViewController.xib */,
+			);
+			path = "Login View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,9 +314,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5EC4C182376EBBF00950CFD /* ForgetViewController.xib in Resources */,
+				B5EC4C202376F69200950CFD /* MainViewController.xib in Resources */,
+				B5EC4C132376EA3F00950CFD /* LoginViewController.xib in Resources */,
 				B5EC4BE52376E5BE00950CFD /* LaunchScreen.storyboard in Resources */,
+				B5EC4C0E2376E98800950CFD /* RegistViewController.xib in Resources */,
+				B5C5AFF6237712760047A1FD /* HomeViewController.xib in Resources */,
+				B502BEF82377A97200F6C81A /* PersonalHeadView.xib in Resources */,
 				B5EC4BE22376E5BE00950CFD /* Assets.xcassets in Resources */,
-				B5EC4BE02376E5BB00950CFD /* Main.storyboard in Resources */,
+				B502BEFE2377B6CA00F6C81A /* PersonalTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,9 +347,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5EC4BDD2376E5BB00950CFD /* ViewController.m in Sources */,
+				B5EC4C122376EA3F00950CFD /* LoginViewController.m in Sources */,
+				B5EC4C172376EBBF00950CFD /* ForgetViewController.m in Sources */,
 				B5EC4BE82376E5BE00950CFD /* main.m in Sources */,
 				B5EC4BDA2376E5BB00950CFD /* AppDelegate.m in Sources */,
+				B5EC4C1F2376F69200950CFD /* MainViewController.m in Sources */,
+				B502BEF62377A8E800F6C81A /* PersonalHeadView.m in Sources */,
+				B5EC4C1B2376F3D700950CFD /* UserInfo.m in Sources */,
+				B5EC4C0D2376E98800950CFD /* RegistViewController.m in Sources */,
+				B5C5AFFC237715E20047A1FD /* TabBarViewController.m in Sources */,
+				B502BEFD2377B6CA00F6C81A /* PersonalTableViewCell.m in Sources */,
+				B502BEEE23779EB200F6C81A /* PersonalViewController.m in Sources */,
+				B5C5AFF5237712760047A1FD /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,14 +394,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B5EC4BDE2376E5BB00950CFD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B5EC4BDF2376E5BB00950CFD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B5EC4BE32376E5BE00950CFD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

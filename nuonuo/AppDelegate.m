@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "LoginViewController.h"
+#import "MainViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +18,21 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+
+    MainViewController * VC=[[MainViewController alloc]init];
+    //UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:VC];
+    
+    self.window.rootViewController = VC;
+    self.window.backgroundColor=[UIColor whiteColor];
+    
+    //设置网络缓存大小
+    int cacheSizeMemory = 1 * 1024 * 1024; //4MB
+    int cacheSizeDisk = 5 * 1024 * 1024;  //32MB
+    NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:cacheSizeMemory diskCapacity:cacheSizeDisk diskPath:@"NSURLCache"];
+    [NSURLCache setSharedURLCache:sharedCache];
+    
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
