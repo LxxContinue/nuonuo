@@ -14,11 +14,21 @@
 @property  NSURLSession *session;
 @property (nonatomic) NSString * token ;
 
+@property (nonatomic) NSString * POST_ID;
+
 @end
 
 const CGFloat kTimeOutTime = 10.f;
 
 @implementation LxxInterfaceConnection
+
+-(NSString *)POST_ID {
+    if(_POST_ID) {
+        return _POST_ID;
+    } else {
+        return @"iOS";
+    }
+}
 
 - (id)init {
     self = [super init];
@@ -113,4 +123,123 @@ const CGFloat kTimeOutTime = 10.f;
     
 }
 
+
+
+-(void)sendImageWithImage:(UIImage *)img block:(void(^)(NSString * imageId ,BOOL isFailed))block{
+    NSData *imageData;
+    NSString *imageFormat;
+    if (UIImagePNGRepresentation(img) != nil) {
+        imageFormat = @"Content-Type: image/png \r\n";
+        imageData = UIImagePNGRepresentation(img);
+        
+    }else{
+        imageFormat = @"Content-Type: image/jpeg \r\n";
+        imageData = UIImageJPEGRepresentation(img, 0.5);
+        
+    }
+    NSString *string =[NSString stringWithFormat:@"http://xyt.fzu.edu.cn:54321/v1/%@",@"files"];
+    NSURL *url = [NSURL URLWithString:string];
+    //NSURL *url = [NSURL URLWithString:@"http://api.fzuxyt.com/v1/files"];
+    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:kTimeOutTime];
+    request.HTTPMethod = @"POST";
+    //设置请求实体
+    NSMutableData *body = [NSMutableData data];
+    
+    ///文件参数
+    [body appendData:[self getDataWithString:@"--BOUNDARY\r\n" ]];
+    NSString *disposition = [NSString stringWithFormat:@"Content-Disposition: form-data; name=\"file\"; filename=\"%@.jpg\"\r\n",self.POST_ID];
+    [body appendData:[self getDataWithString:disposition ]];
+    [body appendData:[self getDataWithString:imageFormat]];
+    [body appendData:[self getDataWithString:@"\r\n"]];
+    [body appendData:imageData];
+    [body appendData:[self getDataWithString:@"\r\n"]];
+    //普通参数
+    [body appendData:[self getDataWithString:@"--BOUNDARY\r\n" ]];
+    //上传参数需要key： （相应参数，在这里是_myModel.personID）
+    NSString *dispositions = [NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n",@"key"];
+    [body appendData:[self getDataWithString:dispositions ]];
+    [body appendData:[self getDataWithString:@"\r\n"]];
+    [body appendData:[self getDataWithString:_POST_ID]];
+    [body appendData:[self getDataWithString:@"\r\n"]];
+    
+    //参数结束
+    [body appendData:[self getDataWithString:@"--BOUNDARY--\r\n"]];
+    request.HTTPBody = body;
+    //设置请求体长度
+    NSInteger length = [body length];
+    [request setValue:[NSString stringWithFormat:@"%ld",(long)length] forHTTPHeaderField:@"Content-Length"];
+    //设置 POST请求文件上传
+    [request setValue:@"multipart/form-data; boundary=BOUNDARY" forHTTPHeaderField:@"Content-Type"];
+    
+    if(![request valueForHTTPHeaderField:@"Authorization"])
+    {
+        [request setValue:self.token forHTTPHeaderField:@"Authorization"];
+    }
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        NSLog(@"rrrdata:%@",error);
+        if(error)
+        {
+            NSLog(@"出现异常:%@",error);
+            //                    if(!block)
+            //                    {
+            block(nil,NO);
+            //                    }
+        }
+        else
+        {
+            NSJSONSerialization *object = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+            NSDictionary *dict = (NSDictionary *)object;
+            NSLog(@"=====%@",[dict objectForKey:@"status"]);
+            NSString *status = [NSString stringWithFormat:@"%@",[dict objectForKey:@"status"]];
+            if([status isEqualToString:@"0"])
+            {
+                NSLog(@"服务器成功响应!>>%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                NSDictionary *dictionary=[self readJsonData:data];
+                block([[dictionary objectForKey:@"data"] objectForKey:@"id"],YES);
+            }
+            else
+            {
+                NSLog(@"服务器返回失败!>>%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                block(nil,NO);
+            }
+        }
+        
+    }];
+    //开始任务
+    [dataTask resume];
+    
+}
+
+
+-(NSData *)getDataWithString:(NSString *)string{
+    NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
+    
+    return data;
+}
+
+-(NSString *)convertToJsonData:(NSDictionary *)dict
+{
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:&error];
+    NSString *jsonString;
+    if (!jsonData) {
+        
+        NSLog(@"%@",error);
+        
+    }else{
+        jsonString = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
+    }
+    NSMutableString *mutStr = [NSMutableString stringWithString:jsonString];
+    //    NSRange range = {0,jsonString.length};
+    //去掉字符串中的空格
+    //    [mutStr replaceOccurrencesOfString:@" " withString:@"" options:NSLiteralSearch range:range];
+    NSRange range2 = {0,mutStr.length};
+    
+    //去掉字符串中的换行符
+    [mutStr replaceOccurrencesOfString:@"\n" withString:@"" options:NSLiteralSearch range:range2];
+    return mutStr;
+    
+}
 @end

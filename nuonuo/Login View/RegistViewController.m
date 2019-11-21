@@ -28,18 +28,33 @@ static const CGFloat kTimeOutTime = 10.f;
 
 #pragma mark - Private DataConfiguration
 - (void)dataConfiguration{
-    
+
     self.phoneText.keyboardType = UIReturnKeyDefault;
     self.phoneText.delegate = self;
+    self.phoneText.textColor = [UIColor whiteColor];
     
+//    NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:@"手机"];
+//    [placeholder addAttribute:NSForegroundColorAttributeName
+//                        value:[UIColor whiteColor]
+//                        range:NSMakeRange(0, 5)];
+//  self.phoneText.attributedPlaceholder = placeholder;
+    self.phoneText.placeholder = @"手机";
+    [self.phoneText setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
+    
+
     self.passwordText.keyboardType = UIReturnKeyDefault;
     self.passwordText.delegate = self;
+    self.passwordText.textColor = [UIColor whiteColor];
+    self.passwordText.placeholder = @"密码";
+    [self.passwordText setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
     
     self.mailText.keyboardType = UIReturnKeyDefault;
     self.mailText.delegate = self;
+    self.mailText.textColor = [UIColor whiteColor];
+    self.mailText.placeholder = @"邮箱";
+    [self.mailText setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
     
-    self.mailText.text =@"623843876@qq.com";
-    
+    //self.mailText.text =@"623843876@qq.com";
 }
 
 -(void)regist{
@@ -125,6 +140,17 @@ static const CGFloat kTimeOutTime = 10.f;
     [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
     // 弹出对话框
     [self presentViewController:alert animated:true completion:nil];
+}
+
+#pragma mark - UITextFieldDelegate
+//点击return收起键盘
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    return [textField resignFirstResponder];
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
 }
 
 

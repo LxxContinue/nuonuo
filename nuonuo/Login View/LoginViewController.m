@@ -15,7 +15,7 @@
 #import "HomeViewController.h"
 #import "TabBarViewController.h"
 
-@interface LoginViewController ()
+@interface LoginViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *phoneText;
 @property (weak, nonatomic) IBOutlet UITextField *passwordText;
 
@@ -30,7 +30,8 @@ static const CGFloat kTimeOutTime = 10.f;
     self.view.backgroundColor =[UIColor whiteColor];
     self.title = @"登录";
     
-
+    [self dataConfiguration];
+    
     self.edgesForExtendedLayout=UIRectEdgeNone;
     self.navigationController.navigationBar.translucent = NO;
     [self.navigationItem setHidesBackButton:YES];
@@ -40,7 +41,21 @@ static const CGFloat kTimeOutTime = 10.f;
 #pragma mark - Private DataConfiguration
 - (void)dataConfiguration{
     
+    self.phoneText.keyboardType = UIReturnKeyDefault;
+    self.phoneText.delegate = self;
+    self.phoneText.textColor = [UIColor whiteColor];
+    self.phoneText.placeholder = @"手机";
+    [self.phoneText setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
+    
+    
+    self.passwordText.keyboardType = UIReturnKeyDefault;
+    self.passwordText.delegate = self;
+    self.passwordText.textColor = [UIColor whiteColor];
+    self.passwordText.placeholder = @"密码";
+    [self.passwordText setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
 
+    self.phoneText.text = @"13107936362";
+    self.passwordText.text = @"lxx123";
     
 }
 

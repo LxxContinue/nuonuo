@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
                 <outlet property="backView" destination="vG8-KW-QjP" id="S9g-mY-wp6"/>
+                <outlet property="idTextField" destination="zRM-Kh-iYn" id="TJN-ay-GMJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,34 +23,49 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="图层4" translatesAutoresizingMaskIntoConstraints="NO" id="tp6-qL-fML">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="302"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="281.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="tp6-qL-fML" secondAttribute="height" multiplier="4:3" id="U38-dL-Gwh"/>
+                    </constraints>
                 </imageView>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vG8-KW-QjP">
-                    <rect key="frame" x="112" y="179" width="150" height="150"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vG8-KW-QjP">
+                    <rect key="frame" x="112.5" y="178.5" width="150" height="150"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="相机" translatesAutoresizingMaskIntoConstraints="NO" id="3Zk-Pp-OeL">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eba-PZ-Zzc">
+                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                            <connections>
+                                <action selector="photoAction:" destination="-1" eventType="touchUpInside" id="xYJ-xr-qTI"/>
+                            </connections>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="相机" translatesAutoresizingMaskIntoConstraints="NO" id="s0x-6M-NN1">
                             <rect key="frame" x="45" y="50" width="60" height="50"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="eba-PZ-Zzc" firstAttribute="centerX" secondItem="vG8-KW-QjP" secondAttribute="centerX" id="1r4-NV-n4F"/>
+                        <constraint firstAttribute="width" constant="150" id="1u0-d1-dEI"/>
+                        <constraint firstAttribute="height" constant="150" id="DWZ-tX-TfE"/>
+                        <constraint firstItem="eba-PZ-Zzc" firstAttribute="height" secondItem="vG8-KW-QjP" secondAttribute="height" id="FU9-Rc-T9S"/>
+                        <constraint firstItem="eba-PZ-Zzc" firstAttribute="width" secondItem="vG8-KW-QjP" secondAttribute="width" id="YEE-OV-H1A"/>
+                        <constraint firstItem="s0x-6M-NN1" firstAttribute="centerY" secondItem="vG8-KW-QjP" secondAttribute="centerY" id="Yx9-Xd-QnK"/>
+                        <constraint firstItem="eba-PZ-Zzc" firstAttribute="centerY" secondItem="vG8-KW-QjP" secondAttribute="centerY" id="oPk-A0-mIn"/>
+                        <constraint firstItem="s0x-6M-NN1" firstAttribute="centerX" secondItem="vG8-KW-QjP" secondAttribute="centerX" id="qld-KR-Pzk"/>
+                    </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                             <integer key="value" value="75"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入车牌号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zRM-Kh-iYn">
-                    <rect key="frame" x="91" y="453" width="196" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入车牌号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zRM-Kh-iYn">
+                    <rect key="frame" x="60" y="428.5" width="255" height="30"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eda-q7-i5y">
-                    <rect key="frame" x="301" y="457" width="34" height="22"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eda-q7-i5y">
+                    <rect key="frame" x="271" y="432.5" width="34" height="22"/>
                     <state key="normal" image="右箭头"/>
                     <connections>
                         <action selector="confirmAction:" destination="-1" eventType="touchUpInside" id="dAS-Ag-pn9"/>
@@ -58,8 +74,16 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="zRM-Kh-iYn" firstAttribute="top" secondItem="vG8-KW-QjP" secondAttribute="bottom" constant="100" id="84N-fR-Yg3"/>
+                <constraint firstItem="eda-q7-i5y" firstAttribute="centerY" secondItem="zRM-Kh-iYn" secondAttribute="centerY" id="8Wr-d2-mP4"/>
                 <constraint firstItem="tp6-qL-fML" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="93e-dY-hrz"/>
+                <constraint firstItem="vG8-KW-QjP" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-80" id="Rop-ZI-ayx"/>
+                <constraint firstItem="zRM-Kh-iYn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Wwn-K3-q0W"/>
                 <constraint firstItem="tp6-qL-fML" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="XLl-xT-9U4"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="zRM-Kh-iYn" secondAttribute="trailing" constant="60" id="iWY-yq-4lE"/>
+                <constraint firstItem="vG8-KW-QjP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="lci-qt-is5"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="eda-q7-i5y" secondAttribute="trailing" constant="70" id="los-o9-JQy"/>
+                <constraint firstItem="zRM-Kh-iYn" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="60" id="ni4-Xq-axx"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="tp6-qL-fML" secondAttribute="trailing" id="qkf-eo-E3t"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>

@@ -17,6 +17,11 @@
 		B5C5AFFC237715E20047A1FD /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C5AFFB237715E20047A1FD /* TabBarViewController.m */; };
 		B5EAC4DC238697F600373E21 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5EAC4DB238697F600373E21 /* SearchViewController.m */; };
 		B5EAC4DF2386996600373E21 /* LxxInterfaceConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = B5EAC4DE2386996600373E21 /* LxxInterfaceConnection.m */; };
+		B5EAC4E22386E70A00373E21 /* newsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5EAC4E12386E70A00373E21 /* newsViewController.m */; };
+		B5EAC4E52386E73700373E21 /* friendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5EAC4E42386E73700373E21 /* friendsViewController.m */; };
+		B5EAC4E82386E9DE00373E21 /* UIViewController+XHPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = B5EAC4E62386E9DE00373E21 /* UIViewController+XHPhoto.m */; };
+		B5EAC4F22386F62000373E21 /* SelectPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5EAC4F02386F62000373E21 /* SelectPhotoViewController.m */; };
+		B5EAC4F32386F62000373E21 /* SelectPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5EAC4F12386F62000373E21 /* SelectPhotoViewController.xib */; };
 		B5EC4BDA2376E5BB00950CFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5EC4BD92376E5BB00950CFD /* AppDelegate.m */; };
 		B5EC4BE22376E5BE00950CFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5EC4BE12376E5BE00950CFD /* Assets.xcassets */; };
 		B5EC4BE52376E5BE00950CFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5EC4BE32376E5BE00950CFD /* LaunchScreen.storyboard */; };
@@ -69,6 +74,15 @@
 		B5EAC4DB238697F600373E21 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		B5EAC4DD2386996600373E21 /* LxxInterfaceConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LxxInterfaceConnection.h; sourceTree = "<group>"; };
 		B5EAC4DE2386996600373E21 /* LxxInterfaceConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LxxInterfaceConnection.m; sourceTree = "<group>"; };
+		B5EAC4E02386E70A00373E21 /* newsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = newsViewController.h; sourceTree = "<group>"; };
+		B5EAC4E12386E70A00373E21 /* newsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = newsViewController.m; sourceTree = "<group>"; };
+		B5EAC4E32386E73700373E21 /* friendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = friendsViewController.h; sourceTree = "<group>"; };
+		B5EAC4E42386E73700373E21 /* friendsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = friendsViewController.m; sourceTree = "<group>"; };
+		B5EAC4E62386E9DE00373E21 /* UIViewController+XHPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+XHPhoto.m"; sourceTree = "<group>"; };
+		B5EAC4E72386E9DE00373E21 /* UIViewController+XHPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+XHPhoto.h"; sourceTree = "<group>"; };
+		B5EAC4EF2386F62000373E21 /* SelectPhotoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectPhotoViewController.h; sourceTree = "<group>"; };
+		B5EAC4F02386F62000373E21 /* SelectPhotoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectPhotoViewController.m; sourceTree = "<group>"; };
+		B5EAC4F12386F62000373E21 /* SelectPhotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectPhotoViewController.xib; sourceTree = "<group>"; };
 		B5EC4BD52376E5BB00950CFD /* nuonuo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nuonuo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5EC4BD82376E5BB00950CFD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B5EC4BD92376E5BB00950CFD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -144,10 +158,22 @@
 				B5C5AFF2237712760047A1FD /* HomeViewController.h */,
 				B5C5AFF3237712760047A1FD /* HomeViewController.m */,
 				B5C5AFF4237712760047A1FD /* HomeViewController.xib */,
+				B5EAC4EF2386F62000373E21 /* SelectPhotoViewController.h */,
+				B5EAC4F02386F62000373E21 /* SelectPhotoViewController.m */,
+				B5EAC4F12386F62000373E21 /* SelectPhotoViewController.xib */,
 				B5EAC4DA238697F600373E21 /* SearchViewController.h */,
 				B5EAC4DB238697F600373E21 /* SearchViewController.m */,
 			);
 			path = "Photo View";
+			sourceTree = "<group>";
+		};
+		B5EAC4E92386ECA300373E21 /* Tool Group */ = {
+			isa = PBXGroup;
+			children = (
+				B5EAC4E72386E9DE00373E21 /* UIViewController+XHPhoto.h */,
+				B5EAC4E62386E9DE00373E21 /* UIViewController+XHPhoto.m */,
+			);
+			path = "Tool Group";
 			sourceTree = "<group>";
 		};
 		B5EC4BCC2376E5BB00950CFD = {
@@ -187,10 +213,15 @@
 				B502BEF92377B69D00F6C81A /* Personal View */,
 				B5EC4C212376F6DD00950CFD /* Login View */,
 				B5EAC4D9238697D400373E21 /* Photo View */,
+				B5EAC4E92386ECA300373E21 /* Tool Group */,
 				B5EC4BE12376E5BE00950CFD /* Assets.xcassets */,
 				B5EC4BE32376E5BE00950CFD /* LaunchScreen.storyboard */,
 				B5EC4BE62376E5BE00950CFD /* Info.plist */,
 				B5EC4BE72376E5BE00950CFD /* main.m */,
+				B5EAC4E02386E70A00373E21 /* newsViewController.h */,
+				B5EAC4E12386E70A00373E21 /* newsViewController.m */,
+				B5EAC4E32386E73700373E21 /* friendsViewController.h */,
+				B5EAC4E42386E73700373E21 /* friendsViewController.m */,
 			);
 			path = nuonuo;
 			sourceTree = "<group>";
@@ -335,6 +366,7 @@
 				B5EC4C182376EBBF00950CFD /* ForgetViewController.xib in Resources */,
 				B5EC4C202376F69200950CFD /* MainViewController.xib in Resources */,
 				B5EC4C132376EA3F00950CFD /* LoginViewController.xib in Resources */,
+				B5EAC4F32386F62000373E21 /* SelectPhotoViewController.xib in Resources */,
 				B5EC4BE52376E5BE00950CFD /* LaunchScreen.storyboard in Resources */,
 				B5EC4C0E2376E98800950CFD /* RegistViewController.xib in Resources */,
 				B5C5AFF6237712760047A1FD /* HomeViewController.xib in Resources */,
@@ -372,11 +404,15 @@
 				B5EC4BDA2376E5BB00950CFD /* AppDelegate.m in Sources */,
 				B5EC4C1F2376F69200950CFD /* MainViewController.m in Sources */,
 				B502BEF62377A8E800F6C81A /* PersonalHeadView.m in Sources */,
+				B5EAC4F22386F62000373E21 /* SelectPhotoViewController.m in Sources */,
 				B5EC4C1B2376F3D700950CFD /* UserInfo.m in Sources */,
+				B5EAC4E82386E9DE00373E21 /* UIViewController+XHPhoto.m in Sources */,
 				B5EC4C0D2376E98800950CFD /* RegistViewController.m in Sources */,
 				B5C5AFFC237715E20047A1FD /* TabBarViewController.m in Sources */,
 				B5EAC4DF2386996600373E21 /* LxxInterfaceConnection.m in Sources */,
 				B502BEFD2377B6CA00F6C81A /* PersonalTableViewCell.m in Sources */,
+				B5EAC4E52386E73700373E21 /* friendsViewController.m in Sources */,
+				B5EAC4E22386E70A00373E21 /* newsViewController.m in Sources */,
 				B502BEEE23779EB200F6C81A /* PersonalViewController.m in Sources */,
 				B5C5AFF5237712760047A1FD /* HomeViewController.m in Sources */,
 			);

@@ -8,14 +8,29 @@
 
 #import "PersonalHeadView.h"
 
+
+@interface PersonalHeadView ()
+
+@property (weak, nonatomic) IBOutlet UIView *backView;
+
+@end
+
 @implementation PersonalHeadView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    [self setUpUI];
 }
-*/
+
+-(void)setUpUI {
+
+    self.backView.layer.cornerRadius = 7;
+    self.backView.layer.shadowOffset = CGSizeMake(3, 3);
+    self.backView.layer.shadowOpacity = 0.4f;
+    self.backView.layer.shadowColor = [UIColor grayColor].CGColor;
+}
+
+
+
 
 @end

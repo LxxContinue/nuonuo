@@ -19,15 +19,37 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.view.backgroundColor = [UIColor whiteColor];
     
+//    UIBarButtonItem *leftBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"返回"]  style:UIBarButtonItemStyleDone target:self action:@selector(popAction)];
+//    self.navigationItem.leftBarButtonItem = leftBarItem;
+//
+//    self.navigationItem.leftBarButtonItem = leftBarItem;
+//    self.navigationController.navigationBar.backgroundColor = [UIColor whiteColor];
+////    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:62.0/255 green:54.0/255 blue:139.0/255 alpha:1.0];
+    
+
+    
+    [self dataConfiguration];
     [self getDetail];
+    
+}
+
+-(void)popAction{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Private DataConfiguration
 - (void)dataConfiguration{
-    
+    UIButton * returnBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    returnBtn.frame = CGRectMake(20, 40, 27, 22);
+    [returnBtn setImage:[UIImage imageNamed:@"返回"] forState:UIControlStateNormal];
+    returnBtn.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+    [[returnBtn imageView] setContentMode:UIViewContentModeScaleAspectFill];
+    returnBtn.contentHorizontalAlignment= UIControlContentHorizontalAlignmentFill;
+    returnBtn.contentVerticalAlignment = UIControlContentVerticalAlignmentFill;
+    [returnBtn addTarget:self action:@selector(popAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:returnBtn];
 }
 
 

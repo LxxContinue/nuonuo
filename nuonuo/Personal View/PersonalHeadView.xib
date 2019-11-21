@@ -127,6 +127,7 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="backImage" destination="2wY-0F-Yat" id="Uaq-PB-ooG"/>
+                <outlet property="backView" destination="sbV-ph-f8S" id="k2T-WC-w0l"/>
                 <outlet property="headImage" destination="IPO-8v-9gy" id="be4-s4-Nt0"/>
                 <outlet property="nameLabel" destination="CR2-LV-l6r" id="UK1-OY-idm"/>
             </connections>

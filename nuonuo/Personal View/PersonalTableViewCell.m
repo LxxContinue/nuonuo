@@ -29,6 +29,7 @@
     [super setFrame:frame];
 }
 
+
 +(instancetype)cellInit:(UITableView *)tableView{
     static NSString *identifier=@"PersonalTableViewCell";
     PersonalTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifier];
