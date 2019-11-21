@@ -87,7 +87,6 @@
 
     cell.iconView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",_dataSource[indexPath.row]]];
     cell.hintLabel.text = [NSString stringWithFormat:@"%@",_dataSource[indexPath.row]];
-    NSLog(@"!!!!%ld",(long)indexPath.row);
     if(indexPath.row <5){
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }

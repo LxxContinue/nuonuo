@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "SearchViewController.h"
 
 @interface HomeViewController ()
 @property (weak, nonatomic) IBOutlet UIView *backView;
@@ -26,6 +27,11 @@
     [super viewWillAppear:animated];
     
     [self.navigationController setNavigationBarHidden:YES animated:animated];
+}
+- (IBAction)confirmAction:(UIButton *)sender {
+    
+    SearchViewController *svc = [[SearchViewController alloc]init];
+    [self presentViewController:svc animated:YES completion:nil];
 }
 
 

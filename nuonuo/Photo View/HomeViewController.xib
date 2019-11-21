@@ -47,6 +47,14 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eda-q7-i5y">
+                    <rect key="frame" x="301" y="457" width="34" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="右箭头"/>
+                    <connections>
+                        <action selector="confirmAction:" destination="-1" eventType="touchUpInside" id="dAS-Ag-pn9"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -59,6 +67,7 @@
         </view>
     </objects>
     <resources>
+        <image name="右箭头" width="34" height="21"/>
         <image name="图层4" width="414" height="302"/>
         <image name="相机" width="60" height="50"/>
     </resources>

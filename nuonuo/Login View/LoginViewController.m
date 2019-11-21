@@ -36,31 +36,40 @@ static const CGFloat kTimeOutTime = 10.f;
     [self.navigationItem setHidesBackButton:YES];
     
 }
+
+#pragma mark - Private DataConfiguration
+- (void)dataConfiguration{
+    
+
+    
+}
+
 - (IBAction)loginAction:(UIButton *)sender {
 
-    TabBarViewController *tvc = [[TabBarViewController alloc ] init];
-    // 获取主代理
-    AppDelegate *delegete = (AppDelegate *)[[UIApplication  sharedApplication] delegate];
-    delegete.window.rootViewController = tvc;
+//    TabBarViewController *tvc = [[TabBarViewController alloc ] init];
+//    // 获取主代理
+//    AppDelegate *delegete = (AppDelegate *)[[UIApplication  sharedApplication] delegate];
+//    delegete.window.rootViewController = tvc;
     
-//    NSString*pattern =@"^[0-9]{11}";
-//    NSPredicate*pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",pattern];
-//    if(![pred evaluateWithObject:_phoneText.text]) {
-//        [self showError:@"请输入11位正确手机号"];
-//        return;
-//    }
-//
-//    if (_passwordText.text.length == 0) {
-//        [self showError:@"请输入密码"];
-//        return;
-//    }
+    NSString*pattern =@"^[0-9]{11}";
+    NSPredicate*pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",pattern];
+    if(![pred evaluateWithObject:_phoneText.text]) {
+        [self showError:@"请输入11位正确手机号"];
+        return;
+    }
+
+    if (_passwordText.text.length == 0) {
+        [self showError:@"请输入密码"];
+        return;
+    }
     
-    //[self login];
+    [self login];
 }
 
 -(void)login{
 
-    NSURL *url = [NSURL URLWithString:@"http://47.101.140.66:90/v1/users/login"];
+    //NSURL *url = [NSURL URLWithString:@"http://47.101.140.66:90/v1/users/login"];
+    NSURL *url = [NSURL URLWithString:@"http://xyt.fzu.edu.cn:54321/v1/nuoUsers/login"];
 
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:kTimeOutTime];
     request.HTTPMethod = @"POST";
@@ -98,6 +107,11 @@ static const CGFloat kTimeOutTime = 10.f;
 //                // 获取主代理
 //                AppDelegate *delegete = (AppDelegate *)[[UIApplication  sharedApplication] delegate];
 //                delegete.window.rootViewController = mvc;
+                
+                TabBarViewController *tvc = [[TabBarViewController alloc ] init];
+                // 获取主代理
+                AppDelegate *delegete = (AppDelegate *)[[UIApplication  sharedApplication] delegate];
+                delegete.window.rootViewController = tvc;
             });
             
         }else{
