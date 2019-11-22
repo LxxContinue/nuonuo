@@ -55,7 +55,7 @@
                     <rect key="frame" x="299" y="362.5" width="16" height="22"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPJ-Hs-ohY">
-                    <rect key="frame" x="149" y="518.5" width="77" height="30"/>
+                    <rect key="frame" x="109" y="518.5" width="77" height="30"/>
                     <state key="normal" title="忘记密码？">
                         <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -93,9 +93,9 @@
                     <rect key="frame" x="296" y="303.5" width="19" height="20"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pEM-G4-YMw">
-                    <rect key="frame" x="274" y="518.5" width="31" height="30"/>
+                    <rect key="frame" x="234" y="518.5" width="31" height="30"/>
                     <state key="normal" title="注册">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
                         <action selector="registAction:" destination="-1" eventType="touchUpInside" id="Lc0-JX-3rx"/>
@@ -141,7 +141,7 @@
                 <constraint firstItem="iHu-hi-Gcg" firstAttribute="top" secondItem="Af8-Rg-fCU" secondAttribute="bottom" constant="30" id="w0W-l5-7rN"/>
                 <constraint firstItem="pEM-G4-YMw" firstAttribute="centerY" secondItem="uPJ-Hs-ohY" secondAttribute="centerY" id="wxQ-0E-pP5"/>
                 <constraint firstItem="QBl-5I-C0L" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="xRE-T0-cvI"/>
-                <constraint firstItem="uPJ-Hs-ohY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="z5i-z8-GYe"/>
+                <constraint firstItem="uPJ-Hs-ohY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="-40" id="z5i-z8-GYe"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="132" y="154.27286356821591"/>

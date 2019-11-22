@@ -23,6 +23,8 @@
 @property NSArray *dataSource;
 
 @property UserInfo *userInfo;
+
+@property (nonatomic, strong) NSString * nameStr;
 @end
 
 @implementation SettingTableViewController
@@ -43,6 +45,8 @@
     
     NSData *deData = [[NSUserDefaults standardUserDefaults] objectForKey:@"userInfo"];
     self.userInfo = [NSKeyedUnarchiver unarchiveObjectWithData:deData];
+    
+    self.nameStr = self.userInfo.name;
 }
 
 -(void)creatTable{
@@ -83,7 +87,7 @@
     }
     cell.textLabel.text = [NSString stringWithFormat:@"%@", self.dataSource[indexPath.row]];
     if(indexPath.row ==0){
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", self.userInfo.name];
+        cell.detailTextLabel.text = self.nameStr;
     }
     else if(indexPath.row ==1){
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", self.userInfo.phone];
@@ -112,10 +116,52 @@
     self.navigationController.navigationBar.topItem.title = @"";
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
-
+    if(indexPath.row ==0){
+        [self  showNameInput];
+    }
     
 }
 
+- (void)showNameInput {
+    UIAlertController *mailInputAlert = [UIAlertController alertControllerWithTitle:@"请输入您要修改的名称" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [mailInputAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.text = self.nameStr;
+        textField.returnKeyType = UIReturnKeyDone;
+        [textField addTarget:self action:@selector(nameDidChanged:)
+            forControlEvents:UIControlEventEditingChanged];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *saveAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        self.nameStr = mailInputAlert.textFields.firstObject.text;
+        NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:0];//指定cell
+        [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:path,nil] withRowAnimation:UITableViewRowAnimationNone];
+    }];
+    saveAction.enabled = NO;
+    [mailInputAlert addAction:cancelAction];
+    [mailInputAlert addAction:saveAction];
+    [self presentViewController:mailInputAlert animated:YES completion:nil];
+}
+
+- (void)nameDidChanged:(UITextField *)sender {
+    UIAlertController *alertController = (UIAlertController *)self.presentedViewController;
+    if(alertController) {
+        NSString *inputMail = alertController.textFields.firstObject.text;
+        UIAlertAction *saveAction = alertController.actions.lastObject;
+        if(![inputMail isEqualToString:@""]) {
+            saveAction.enabled = YES;
+            //self.mailModify = true;
+            
+            //            if([inputMail containsString:@"@"]){
+            //                saveAction.enabled = YES;
+            //                self.mailModify = true;
+            //            }
+            //            else{
+            //                [LCProgressHUD showFailure:@"请输入正确邮箱格式@"];
+            //            }
+        }
+        
+    }
+}
 
 
 

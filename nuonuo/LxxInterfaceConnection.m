@@ -69,7 +69,8 @@ const CGFloat kTimeOutTime = 10.f;
     request.HTTPMethod = @"GET";
     NSLog(@"&&&&& self.token:%@",self.token);
     
-    [request setValue:self.token forHTTPHeaderField:@"X-Auth-Token"];
+//    [request setValue:self.token forHTTPHeaderField:@"X-Auth-Token"];
+    [request setValue:self.token forHTTPHeaderField:@"Authorization"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[[NSOperationQueue alloc]init]];

@@ -15,6 +15,10 @@
 #import "LoginViewController.h"
 #import "AppDelegate.h"
 
+#import "LxxInterfaceConnection.h"
+#import "SelectPhotoViewController.h"
+#import "BindViewController.h"
+
 #define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
 #define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
 
@@ -28,6 +32,7 @@
 @property NSArray *dataSource;
 
 @property UserInfo *userInfo;
+
 
 @end
 
@@ -121,6 +126,14 @@
         svc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:svc animated:YES];
     }
+    else if(indexPath.row == 5){
+//        BindViewController *bvc = [[BindViewController alloc]init];
+//        bvc.token = self.userInfo.accessToken;
+//        bvc.hidesBottomBarWhenPushed = YES;
+//        [self.navigationController pushViewController:bvc animated:YES];
+        
+        [self getBindingInfo];
+    }
     else if(indexPath.row ==6){
         [self logout];
     }
@@ -170,6 +183,39 @@
     [alertController addAction:cancelAction];
     [alertController addAction:defaultAction];
     [self.navigationController presentViewController:alertController animated:YES completion:nil];
+}
+
+-(void)getBindingInfo{
+    NSString *getStr = [NSString stringWithFormat:@"photo/info"];
+    
+    NSMutableDictionary * parm = [[NSMutableDictionary alloc]init];
+    LxxInterfaceConnection *connect = [[LxxInterfaceConnection alloc] init];
+    [connect connetNetWithGetMethod:getStr parms:parm block:^(int fail,NSString *dataMessage,NSDictionary *dictionary) {
+        if (fail ==0) {
+            NSLog(@"search dataMessage：%@",dataMessage);
+            
+            NSDictionary *dic = [dictionary objectForKey:@"data"];
+
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            arr = [dic objectForKey:@"otherPicIds"];
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                BindViewController *bvc = [[BindViewController alloc]init];
+                bvc.token = self.userInfo.accessToken;
+                if(arr.count==0){
+                    bvc.Binding = NO;
+                }else {
+                    bvc.Binding = YES;
+                    NSLog(@"%@",arr[0]);
+                }
+                bvc.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:bvc animated:YES];
+
+            });
+        }
+    }];
+    
 }
 
 

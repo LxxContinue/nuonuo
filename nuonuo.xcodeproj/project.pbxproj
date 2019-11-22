@@ -23,6 +23,8 @@
 		B5EAC4F22386F62000373E21 /* SelectPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5EAC4F02386F62000373E21 /* SelectPhotoViewController.m */; };
 		B5EAC4F32386F62000373E21 /* SelectPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5EAC4F12386F62000373E21 /* SelectPhotoViewController.xib */; };
 		B5EAC4F623876C5400373E21 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5EAC4F523876C5400373E21 /* SettingTableViewController.m */; };
+		B5EAC4FA2387A32400373E21 /* BindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5EAC4F82387A32400373E21 /* BindViewController.m */; };
+		B5EAC4FB2387A32400373E21 /* BindViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5EAC4F92387A32400373E21 /* BindViewController.xib */; };
 		B5EC4BDA2376E5BB00950CFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5EC4BD92376E5BB00950CFD /* AppDelegate.m */; };
 		B5EC4BE22376E5BE00950CFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5EC4BE12376E5BE00950CFD /* Assets.xcassets */; };
 		B5EC4BE52376E5BE00950CFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5EC4BE32376E5BE00950CFD /* LaunchScreen.storyboard */; };
@@ -86,6 +88,9 @@
 		B5EAC4F12386F62000373E21 /* SelectPhotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectPhotoViewController.xib; sourceTree = "<group>"; };
 		B5EAC4F423876C5400373E21 /* SettingTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
 		B5EAC4F523876C5400373E21 /* SettingTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
+		B5EAC4F72387A32400373E21 /* BindViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BindViewController.h; sourceTree = "<group>"; };
+		B5EAC4F82387A32400373E21 /* BindViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BindViewController.m; sourceTree = "<group>"; };
+		B5EAC4F92387A32400373E21 /* BindViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BindViewController.xib; sourceTree = "<group>"; };
 		B5EC4BD52376E5BB00950CFD /* nuonuo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nuonuo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5EC4BD82376E5BB00950CFD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B5EC4BD92376E5BB00950CFD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -153,6 +158,9 @@
 				B502BEFA2377B6CA00F6C81A /* PersonalTableViewCell.h */,
 				B502BEFB2377B6CA00F6C81A /* PersonalTableViewCell.m */,
 				B502BEFC2377B6CA00F6C81A /* PersonalTableViewCell.xib */,
+				B5EAC4F72387A32400373E21 /* BindViewController.h */,
+				B5EAC4F82387A32400373E21 /* BindViewController.m */,
+				B5EAC4F92387A32400373E21 /* BindViewController.xib */,
 			);
 			path = "Personal View";
 			sourceTree = "<group>";
@@ -369,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5EC4C182376EBBF00950CFD /* ForgetViewController.xib in Resources */,
+				B5EAC4FB2387A32400373E21 /* BindViewController.xib in Resources */,
 				B5EC4C202376F69200950CFD /* MainViewController.xib in Resources */,
 				B5EC4C132376EA3F00950CFD /* LoginViewController.xib in Resources */,
 				B5EAC4F32386F62000373E21 /* SelectPhotoViewController.xib in Resources */,
@@ -405,6 +414,7 @@
 				B5EC4C122376EA3F00950CFD /* LoginViewController.m in Sources */,
 				B5EAC4DC238697F600373E21 /* SearchViewController.m in Sources */,
 				B5EC4C172376EBBF00950CFD /* ForgetViewController.m in Sources */,
+				B5EAC4FA2387A32400373E21 /* BindViewController.m in Sources */,
 				B5EC4BE82376E5BE00950CFD /* main.m in Sources */,
 				B5EC4BDA2376E5BB00950CFD /* AppDelegate.m in Sources */,
 				B5EC4C1F2376F69200950CFD /* MainViewController.m in Sources */,
