@@ -9,7 +9,11 @@
 #import "PersonalViewController.h"
 #import "PersonalHeadView.h"
 #import "PersonalTableViewCell.h"
+#import "UserInfo.h"
 
+#import "SettingTableViewController.h"
+#import "LoginViewController.h"
+#import "AppDelegate.h"
 
 #define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
 #define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
@@ -22,6 +26,8 @@
 
 @property (nonatomic,strong) UITableView *tableView;
 @property NSArray *dataSource;
+
+@property UserInfo *userInfo;
 
 @end
 
@@ -41,10 +47,18 @@
     [self.navigationController setNavigationBarHidden:YES animated:animated];
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+}
+
 
 #pragma mark - Private DataConfiguration
 - (void)dataConfiguration{
-    _dataSource = @[@"个人信息修改",@"问题与建议",@"检查与更新",@"设置",@"关于",@"退出登录"];
+    _dataSource = @[@"个人信息修改",@"问题与建议",@"检查与更新",@"设置",@"关于",@"绑定",@"退出登录"];
+    
+    NSData *deData = [[NSUserDefaults standardUserDefaults] objectForKey:@"userInfo"];
+    self.userInfo = [NSKeyedUnarchiver unarchiveObjectWithData:deData];
 }
 
 -(void)creatTable{
@@ -87,7 +101,7 @@
 
     cell.iconView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",_dataSource[indexPath.row]]];
     cell.hintLabel.text = [NSString stringWithFormat:@"%@",_dataSource[indexPath.row]];
-    if(indexPath.row <5){
+    if(indexPath.row <6){
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
@@ -101,6 +115,15 @@
     self.navigationController.navigationBar.topItem.title = @"";
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
+    
+    if(indexPath.row ==0){
+        SettingTableViewController *svc  = [[SettingTableViewController alloc]init];
+        svc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:svc animated:YES];
+    }
+    else if(indexPath.row ==6){
+        [self logout];
+    }
    
     
 }
@@ -109,7 +132,7 @@
     NSArray* nibView =  [[NSBundle mainBundle] loadNibNamed:@"PersonalHeadView" owner:self options:nil];
     PersonalHeadView *head = [nibView objectAtIndex:0];
 
-    head.nameLabel.text = @"辣鸡软工";
+    head.nameLabel.text =[NSString stringWithFormat:@"%@",self.userInfo.name];
     
     head.headImage.image = [UIImage imageNamed:@"head"];
     head.headImage.layer.cornerRadius = 40;
@@ -126,6 +149,27 @@
     [head.backImage addSubview:effectview];
     
     return head;
+}
+
+-(void)logout
+{
+    NSString *msg = [NSString stringWithFormat:@"\n确定要退出挪挪吗？"];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"温馨提示" message:msg preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSString *appDomainStr = [[NSBundle mainBundle] bundleIdentifier];
+        [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomainStr];
+        LoginViewController *lvc = [[LoginViewController alloc] init];
+        //UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:lvc];
+        
+        AppDelegate *delegete = (AppDelegate *)[[UIApplication  sharedApplication] delegate];
+        //delegete.window.rootViewController = nav;
+        delegete.window.rootViewController = lvc;
+        
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDestructive handler:nil];
+    [alertController addAction:cancelAction];
+    [alertController addAction:defaultAction];
+    [self.navigationController presentViewController:alertController animated:YES completion:nil];
 }
 
 

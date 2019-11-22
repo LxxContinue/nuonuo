@@ -26,36 +26,36 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
                 <textField opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Af8-Rg-fCU">
-                    <rect key="frame" x="50" y="288.5" width="275" height="30"/>
+                    <rect key="frame" x="50" y="298.5" width="275" height="30"/>
                     <color key="backgroundColor" red="0.21176470588235294" green="0.20784313725490197" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手机号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xbm-PI-bGy">
-                    <rect key="frame" x="70" y="294.5" width="46" height="18"/>
+                    <rect key="frame" x="70" y="304.5" width="46" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iHu-hi-Gcg">
-                    <rect key="frame" x="50" y="348.5" width="275" height="30"/>
+                    <rect key="frame" x="50" y="358.5" width="275" height="30"/>
                     <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fls-hO-hHF">
-                    <rect key="frame" x="70" y="354.5" width="31" height="18"/>
+                    <rect key="frame" x="70" y="364.5" width="31" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LockIcon" translatesAutoresizingMaskIntoConstraints="NO" id="n2J-7n-Cgo">
-                    <rect key="frame" x="299" y="352.5" width="16" height="22"/>
+                    <rect key="frame" x="299" y="362.5" width="16" height="22"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPJ-Hs-ohY">
-                    <rect key="frame" x="149" y="508.5" width="77" height="30"/>
+                    <rect key="frame" x="149" y="518.5" width="77" height="30"/>
                     <state key="normal" title="忘记密码？">
                         <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -64,7 +64,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1n-cC-ApL">
-                    <rect key="frame" x="80" y="423.5" width="215" height="45"/>
+                    <rect key="frame" x="80" y="433.5" width="215" height="45"/>
                     <color key="backgroundColor" red="0.99215686274509807" green="0.70588235294117652" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="AtO-1P-3T3"/>
@@ -83,17 +83,17 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nuo" translatesAutoresizingMaskIntoConstraints="NO" id="jM6-3H-ZrT">
-                    <rect key="frame" x="117.5" y="98.5" width="140" height="140"/>
+                    <rect key="frame" x="117.5" y="108.5" width="140" height="140"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="140" id="IYJ-eM-7Em"/>
                         <constraint firstAttribute="width" constant="140" id="UNQ-RY-U9Q"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UserIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ANb-Uf-JXF">
-                    <rect key="frame" x="296" y="293.5" width="19" height="20"/>
+                    <rect key="frame" x="296" y="303.5" width="19" height="20"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pEM-G4-YMw">
-                    <rect key="frame" x="274" y="508.5" width="31" height="30"/>
+                    <rect key="frame" x="274" y="518.5" width="31" height="30"/>
                     <state key="normal" title="注册">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -102,7 +102,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V24-0V-Kj8">
-                    <rect key="frame" x="167" y="64.5" width="41" height="24"/>
+                    <rect key="frame" x="167" y="74.5" width="41" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -120,7 +120,7 @@
                 <constraint firstAttribute="trailing" secondItem="Af8-Rg-fCU" secondAttribute="trailing" constant="50" id="Bgb-Z8-pN9"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="ANb-Uf-JXF" secondAttribute="trailing" constant="60" id="IN1-D8-1L9"/>
                 <constraint firstItem="jM6-3H-ZrT" firstAttribute="top" secondItem="V24-0V-Kj8" secondAttribute="bottom" constant="10" id="SuS-P7-3hB"/>
-                <constraint firstItem="Af8-Rg-fCU" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-30" id="UpO-SM-bbE"/>
+                <constraint firstItem="Af8-Rg-fCU" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-20" id="UpO-SM-bbE"/>
                 <constraint firstItem="uPJ-Hs-ohY" firstAttribute="top" secondItem="j1n-cC-ApL" secondAttribute="bottom" constant="40" id="XZC-bL-7kD"/>
                 <constraint firstItem="Fls-hO-hHF" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="70" id="Xvd-M5-TIV"/>
                 <constraint firstItem="Xbm-PI-bGy" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="70" id="YOR-BN-wZk"/>

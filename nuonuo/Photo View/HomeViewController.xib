@@ -59,13 +59,16 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入车牌号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zRM-Kh-iYn">
-                    <rect key="frame" x="60" y="428.5" width="255" height="30"/>
+                    <rect key="frame" x="60" y="428.5" width="255" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="WLS-xx-5OW"/>
+                    </constraints>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eda-q7-i5y">
-                    <rect key="frame" x="271" y="432.5" width="34" height="22"/>
+                    <rect key="frame" x="271" y="442.5" width="34" height="22"/>
                     <state key="normal" image="右箭头"/>
                     <connections>
                         <action selector="confirmAction:" destination="-1" eventType="touchUpInside" id="dAS-Ag-pn9"/>

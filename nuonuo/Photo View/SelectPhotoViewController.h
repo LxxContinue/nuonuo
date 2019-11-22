@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *carImageView;
 
 @property (nonatomic) UIImage *image;
+@property (nonatomic, strong) NSString *carImageID;                      /**< 图片上传返回ID */
 
 
 @end

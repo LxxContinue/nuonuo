@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *idTextField;
 
 @property (nonatomic, strong) UIImageView *carImageView;
+@property (nonatomic, strong) NSString *carImageID;                      /**< 图片上传返回ID */
 @end
 
 @implementation HomeViewController
@@ -49,14 +50,19 @@
     _backView.layer.shadowOpacity=0.8f;
     _backView.layer.shadowColor=[UIColor grayColor].CGColor;
     
-    _idTextField.layer.shadowOffset = CGSizeMake(3, 3);
-    _idTextField.layer.shadowOpacity=0.4f;
-    _idTextField.layer.shadowColor=[UIColor grayColor].CGColor;
+//    _idTextField.layer.shadowOffset = CGSizeMake(3, 3);
+//    _idTextField.layer.shadowOpacity=0.4f;
+//    _idTextField.layer.shadowColor=[UIColor grayColor].CGColor;
     
     _idTextField.keyboardType = UIReturnKeyDefault;
     _idTextField.delegate = self;
     _idTextField.textColor = [UIColor blackColor];
     _idTextField.placeholder = @"请输入车牌号";
+    
+//    _idTextField.layer.borderWidth = textFieldBorderWidth;
+//    CGRect rect = _idTextField.frame;
+//    rect.size.height = 100;
+//    _idTextField.frame = rect;
     
     
 }
@@ -122,6 +128,7 @@
                         SelectPhotoViewController *svc = [[SelectPhotoViewController alloc]init];
                         svc.carImageView.image = image;
                         svc.image = image;
+                        svc.carImageID = imageId;
                         svc.hidesBottomBarWhenPushed = YES;
                         [self.navigationController pushViewController:svc animated:YES];
                     });
@@ -129,6 +136,7 @@
 //                    self.isFailed = NO;
 //                    self.headerImageID = imageId;
 //                    self.isReady = YES;
+                    
                 });
             }
         }];
