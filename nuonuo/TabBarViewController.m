@@ -11,6 +11,7 @@
 #import "PersonalViewController.h"
 #import "newsViewController.h"
 #import "friendsViewController.h"
+#import "MessageTabelViewController.h"
 
 @interface TabBarViewController ()
 
@@ -68,8 +69,8 @@
     friendsViewController *cvc = [[friendsViewController alloc] init];
     [self addOneChildViewController:[[UINavigationController alloc] initWithRootViewController:cvc] withTitle:@"动态" imageName:@"动态-未选中" selectedImageName:@"动态-选中"];
     
-    newsViewController *dvc = [[newsViewController alloc] init];
-    [self addOneChildViewController:[[UINavigationController alloc] initWithRootViewController:dvc] withTitle:@"消息" imageName:@"消息-未选中" selectedImageName:@"消息选中"];
+    MessageTabelViewController *mvc = [[MessageTabelViewController alloc] init];
+    [self addOneChildViewController:[[UINavigationController alloc] initWithRootViewController:mvc] withTitle:@"消息" imageName:@"消息-未选中" selectedImageName:@"消息选中"];
     
     PersonalViewController *pvc = [[PersonalViewController alloc] init];
     [self addOneChildViewController:[[UINavigationController alloc] initWithRootViewController:pvc] withTitle:@"我的" imageName:@"我的-未选中" selectedImageName:@"我的"];

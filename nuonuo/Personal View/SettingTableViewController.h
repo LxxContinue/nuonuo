@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserInfo.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SettingTableViewController : UIViewController
+@property UserInfo *userInfo;
 
 @end
 

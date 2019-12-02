@@ -105,6 +105,74 @@ const CGFloat kTimeOutTime = 10.f;
     }];
     [dataTask resume];
 }
+-(void)connetNetWithPutMethod:(NSString *)handle parms:(NSDictionary *)params block:(void (^)(int, NSString *, NSDictionary *))block  {
+    __block BOOL getFail=0;
+    __block NSString *dataMessage;
+    NSString *urlStr = [NSString stringWithFormat:NetURL,handle];
+    //设置请求头参数
+    NSString *content = @"";
+    //    if(keys.count>0) {
+    //        content = [NSString stringWithFormat:@"%@=%@",keys[0],[params objectForKey:keys[0]]];
+    //    }
+    //    if(keys.count>1) {
+    //        for(int i=1;i<keys.count;i++) {
+    //            content =[NSString stringWithFormat:@"%@&%@=%@",content,keys[i],[params objectForKey:keys[i]]];
+    //        }
+    //    }
+    NSLog(@"contentStr:%@",content);
+    
+    NSURL *url = [NSURL URLWithString:urlStr];
+    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:kTimeOutTime];
+    request.HTTPMethod = @"PUT";
+    content = [self convertToJsonData:params];
+    NSLog(@"contentStr:%@",content);
+    NSData * data = [content dataUsingEncoding:NSUTF8StringEncoding];
+
+//    //设置请求头参数
+//    NSArray *keys=[params allKeys];
+//    NSString *myContent = @"";
+//    if(keys.count>0)
+//        myContent = [NSString stringWithFormat:@"%@=%@",keys[0],[params objectForKey:keys[0]]];
+//    if(keys.count>1) {
+//        for(int i=1;i<keys.count;i++) {
+//            myContent =[NSString stringWithFormat:@"%@&%@=%@",myContent,keys[i],[params objectForKey:keys[i]]];
+//        }
+//    }
+//    NSLog(@"contentStr:%@",myContent);
+//    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//    [request setValue:self.token forHTTPHeaderField:@"Authorization"];
+//    NSLog(@"token:%@",self.token);
+//
+//    NSData *myData = [myContent dataUsingEncoding:NSUTF8StringEncoding];
+//    request.HTTPBody = myData;
+    
+    
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:self.token forHTTPHeaderField:@"Authorization"];
+    request.HTTPBody = data;
+
+    NSURLSession *sess = [NSURLSession sharedSession];
+    //创建网络任务
+    NSURLSessionDataTask *dataTask = [sess dataTaskWithRequest:request completionHandler:^(NSData *data,NSURLResponse *response,NSError *error){
+        NSLog(@"rrrdata:%@",error);
+        NSLog(@"handle:%@",handle);
+        
+        NSDictionary *dictionary=[self readJsonData:data];
+        getFail = [[dictionary objectForKey:@"status"] integerValue];
+        dataMessage=[NSString stringWithFormat:@"%@",[dictionary objectForKey:@"message"]];
+
+            if(block) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    block(getFail,dataMessage,dictionary);
+                });
+                
+            }
+        
+    }];
+    [dataTask resume];
+}
+
+
 
 -(void)connetNetWithPostMethod:(NSString *)handle parms:(NSDictionary *)params needToken:(BOOL)needToken block:(void (^)(int, NSString * _Nonnull, NSDictionary * _Nonnull))block{
     

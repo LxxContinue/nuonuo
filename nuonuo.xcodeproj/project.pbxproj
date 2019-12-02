@@ -7,11 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A07057720F3DB9E19B0107F /* Pods_nuonuo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 817392659A563C153596863B /* Pods_nuonuo.framework */; };
+		B5021DF82394CB9700654DC6 /* GKCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5021DF62394CB9700654DC6 /* GKCycleScrollView.m */; };
+		B5021DF92394CB9700654DC6 /* GKCycleScrollViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B5021DF72394CB9700654DC6 /* GKCycleScrollViewCell.m */; };
+		B5021DFD2394CBF700654DC6 /* testViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5021DFC2394CBF700654DC6 /* testViewController.m */; };
 		B502BEEE23779EB200F6C81A /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B502BEED23779EB200F6C81A /* PersonalViewController.m */; };
 		B502BEF62377A8E800F6C81A /* PersonalHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = B502BEF52377A8E800F6C81A /* PersonalHeadView.m */; };
 		B502BEF82377A97200F6C81A /* PersonalHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B502BEF72377A97200F6C81A /* PersonalHeadView.xib */; };
 		B502BEFD2377B6CA00F6C81A /* PersonalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B502BEFB2377B6CA00F6C81A /* PersonalTableViewCell.m */; };
 		B502BEFE2377B6CA00F6C81A /* PersonalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B502BEFC2377B6CA00F6C81A /* PersonalTableViewCell.xib */; };
+		B54468552393AD0F00F82BD6 /* MessageTabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B54468542393AD0F00F82BD6 /* MessageTabelViewController.m */; };
+		B54468592393B9CF00F82BD6 /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B54468572393B9CF00F82BD6 /* MessageTableViewCell.m */; };
+		B544685A2393B9CF00F82BD6 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B54468582393B9CF00F82BD6 /* MessageTableViewCell.xib */; };
+		B5AA63982388317C00FACF9D /* LCProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B5AA63952388317B00FACF9D /* LCProgressHUD.bundle */; };
+		B5AA63992388317C00FACF9D /* LCProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AA63972388317B00FACF9D /* LCProgressHUD.m */; };
+		B5AA639C2388323400FACF9D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AA639B2388323400FACF9D /* MBProgressHUD.m */; };
+		B5AA63A02388416000FACF9D /* OwerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AA639E2388416000FACF9D /* OwerViewController.m */; };
+		B5AA63A12388416000FACF9D /* OwerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5AA639F2388416000FACF9D /* OwerViewController.xib */; };
 		B5C5AFF5237712760047A1FD /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C5AFF3237712760047A1FD /* HomeViewController.m */; };
 		B5C5AFF6237712760047A1FD /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5C5AFF4237712760047A1FD /* HomeViewController.xib */; };
 		B5C5AFFC237715E20047A1FD /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C5AFFB237715E20047A1FD /* TabBarViewController.m */; };
@@ -60,6 +72,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6535FE0789FBC3C1C3FC9A05 /* Pods-nuonuo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nuonuo.release.xcconfig"; path = "Pods/Target Support Files/Pods-nuonuo/Pods-nuonuo.release.xcconfig"; sourceTree = "<group>"; };
+		817392659A563C153596863B /* Pods_nuonuo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nuonuo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5021DF42394CB9600654DC6 /* GKCycleScrollViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKCycleScrollViewCell.h; sourceTree = "<group>"; };
+		B5021DF52394CB9700654DC6 /* GKCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKCycleScrollView.h; sourceTree = "<group>"; };
+		B5021DF62394CB9700654DC6 /* GKCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKCycleScrollView.m; sourceTree = "<group>"; };
+		B5021DF72394CB9700654DC6 /* GKCycleScrollViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKCycleScrollViewCell.m; sourceTree = "<group>"; };
+		B5021DFB2394CBF700654DC6 /* testViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testViewController.h; sourceTree = "<group>"; };
+		B5021DFC2394CBF700654DC6 /* testViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testViewController.m; sourceTree = "<group>"; };
 		B502BEEC23779EB200F6C81A /* PersonalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalViewController.h; sourceTree = "<group>"; };
 		B502BEED23779EB200F6C81A /* PersonalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
 		B502BEF42377A8E800F6C81A /* PersonalHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalHeadView.h; sourceTree = "<group>"; };
@@ -68,6 +88,19 @@
 		B502BEFA2377B6CA00F6C81A /* PersonalTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalTableViewCell.h; sourceTree = "<group>"; };
 		B502BEFB2377B6CA00F6C81A /* PersonalTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalTableViewCell.m; sourceTree = "<group>"; };
 		B502BEFC2377B6CA00F6C81A /* PersonalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonalTableViewCell.xib; sourceTree = "<group>"; };
+		B54468532393AD0F00F82BD6 /* MessageTabelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageTabelViewController.h; sourceTree = "<group>"; };
+		B54468542393AD0F00F82BD6 /* MessageTabelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageTabelViewController.m; sourceTree = "<group>"; };
+		B54468562393B9CF00F82BD6 /* MessageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
+		B54468572393B9CF00F82BD6 /* MessageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
+		B54468582393B9CF00F82BD6 /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
+		B5AA63952388317B00FACF9D /* LCProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LCProgressHUD.bundle; sourceTree = "<group>"; };
+		B5AA63962388317B00FACF9D /* LCProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCProgressHUD.h; sourceTree = "<group>"; };
+		B5AA63972388317B00FACF9D /* LCProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCProgressHUD.m; sourceTree = "<group>"; };
+		B5AA639A2388323400FACF9D /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		B5AA639B2388323400FACF9D /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		B5AA639D2388416000FACF9D /* OwerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OwerViewController.h; sourceTree = "<group>"; };
+		B5AA639E2388416000FACF9D /* OwerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OwerViewController.m; sourceTree = "<group>"; };
+		B5AA639F2388416000FACF9D /* OwerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OwerViewController.xib; sourceTree = "<group>"; };
 		B5C5AFF2237712760047A1FD /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		B5C5AFF3237712760047A1FD /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		B5C5AFF4237712760047A1FD /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -118,6 +151,7 @@
 		B5EC4C1C2376F69200950CFD /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		B5EC4C1D2376F69200950CFD /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		B5EC4C1E2376F69200950CFD /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		EAC445B5AD6182196DD77FBD /* Pods-nuonuo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nuonuo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nuonuo/Pods-nuonuo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A07057720F3DB9E19B0107F /* Pods_nuonuo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +180,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D8A37332A7EB3E2C12C5B77 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				817392659A563C153596863B /* Pods_nuonuo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		969B1898CBBC2D7CF7879B9E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EAC445B5AD6182196DD77FBD /* Pods-nuonuo.debug.xcconfig */,
+				6535FE0789FBC3C1C3FC9A05 /* Pods-nuonuo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B5021DFA2394CB9C00654DC6 /* Scroll View */ = {
+			isa = PBXGroup;
+			children = (
+				B5021DF52394CB9700654DC6 /* GKCycleScrollView.h */,
+				B5021DF62394CB9700654DC6 /* GKCycleScrollView.m */,
+				B5021DF42394CB9600654DC6 /* GKCycleScrollViewCell.h */,
+				B5021DF72394CB9700654DC6 /* GKCycleScrollViewCell.m */,
+			);
+			path = "Scroll View";
+			sourceTree = "<group>";
+		};
 		B502BEF92377B69D00F6C81A /* Personal View */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +228,18 @@
 			path = "Personal View";
 			sourceTree = "<group>";
 		};
+		B54468522393ACCD00F82BD6 /* Message View */ = {
+			isa = PBXGroup;
+			children = (
+				B54468532393AD0F00F82BD6 /* MessageTabelViewController.h */,
+				B54468542393AD0F00F82BD6 /* MessageTabelViewController.m */,
+				B54468562393B9CF00F82BD6 /* MessageTableViewCell.h */,
+				B54468572393B9CF00F82BD6 /* MessageTableViewCell.m */,
+				B54468582393B9CF00F82BD6 /* MessageTableViewCell.xib */,
+			);
+			path = "Message View";
+			sourceTree = "<group>";
+		};
 		B5EAC4D9238697D400373E21 /* Photo View */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +251,12 @@
 				B5EAC4F12386F62000373E21 /* SelectPhotoViewController.xib */,
 				B5EAC4DA238697F600373E21 /* SearchViewController.h */,
 				B5EAC4DB238697F600373E21 /* SearchViewController.m */,
+				B5AA639D2388416000FACF9D /* OwerViewController.h */,
+				B5AA639E2388416000FACF9D /* OwerViewController.m */,
+				B5AA639F2388416000FACF9D /* OwerViewController.xib */,
+				B5021DFB2394CBF700654DC6 /* testViewController.h */,
+				B5021DFC2394CBF700654DC6 /* testViewController.m */,
+				B5021DFA2394CB9C00654DC6 /* Scroll View */,
 			);
 			path = "Photo View";
 			sourceTree = "<group>";
@@ -185,6 +266,11 @@
 			children = (
 				B5EAC4E72386E9DE00373E21 /* UIViewController+XHPhoto.h */,
 				B5EAC4E62386E9DE00373E21 /* UIViewController+XHPhoto.m */,
+				B5AA63952388317B00FACF9D /* LCProgressHUD.bundle */,
+				B5AA63962388317B00FACF9D /* LCProgressHUD.h */,
+				B5AA63972388317B00FACF9D /* LCProgressHUD.m */,
+				B5AA639A2388323400FACF9D /* MBProgressHUD.h */,
+				B5AA639B2388323400FACF9D /* MBProgressHUD.m */,
 			);
 			path = "Tool Group";
 			sourceTree = "<group>";
@@ -196,6 +282,8 @@
 				B5EC4BF02376E5BE00950CFD /* nuonuoTests */,
 				B5EC4BFB2376E5BE00950CFD /* nuonuoUITests */,
 				B5EC4BD62376E5BB00950CFD /* Products */,
+				969B1898CBBC2D7CF7879B9E /* Pods */,
+				8D8A37332A7EB3E2C12C5B77 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -223,6 +311,7 @@
 				B5C5AFFB237715E20047A1FD /* TabBarViewController.m */,
 				B5EAC4DD2386996600373E21 /* LxxInterfaceConnection.h */,
 				B5EAC4DE2386996600373E21 /* LxxInterfaceConnection.m */,
+				B54468522393ACCD00F82BD6 /* Message View */,
 				B502BEF92377B69D00F6C81A /* Personal View */,
 				B5EC4C212376F6DD00950CFD /* Login View */,
 				B5EAC4D9238697D400373E21 /* Photo View */,
@@ -280,9 +369,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5EC4C012376E5BE00950CFD /* Build configuration list for PBXNativeTarget "nuonuo" */;
 			buildPhases = (
+				86DAF329EBFB1CEF49A1F369 /* [CP] Check Pods Manifest.lock */,
 				B5EC4BD12376E5BB00950CFD /* Sources */,
 				B5EC4BD22376E5BB00950CFD /* Frameworks */,
 				B5EC4BD32376E5BB00950CFD /* Resources */,
+				FFCFE564D434B3308317CDB7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -379,6 +470,9 @@
 				B5EC4C182376EBBF00950CFD /* ForgetViewController.xib in Resources */,
 				B5EAC4FB2387A32400373E21 /* BindViewController.xib in Resources */,
 				B5EC4C202376F69200950CFD /* MainViewController.xib in Resources */,
+				B5AA63982388317C00FACF9D /* LCProgressHUD.bundle in Resources */,
+				B5AA63A12388416000FACF9D /* OwerViewController.xib in Resources */,
+				B544685A2393B9CF00F82BD6 /* MessageTableViewCell.xib in Resources */,
 				B5EC4C132376EA3F00950CFD /* LoginViewController.xib in Resources */,
 				B5EAC4F32386F62000373E21 /* SelectPhotoViewController.xib in Resources */,
 				B5EC4BE52376E5BE00950CFD /* LaunchScreen.storyboard in Resources */,
@@ -406,20 +500,74 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		86DAF329EBFB1CEF49A1F369 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-nuonuo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FFCFE564D434B3308317CDB7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-nuonuo/Pods-nuonuo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nuonuo/Pods-nuonuo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B5EC4BD12376E5BB00950CFD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5AA63992388317C00FACF9D /* LCProgressHUD.m in Sources */,
 				B5EC4C122376EA3F00950CFD /* LoginViewController.m in Sources */,
 				B5EAC4DC238697F600373E21 /* SearchViewController.m in Sources */,
+				B54468552393AD0F00F82BD6 /* MessageTabelViewController.m in Sources */,
+				B5021DF82394CB9700654DC6 /* GKCycleScrollView.m in Sources */,
 				B5EC4C172376EBBF00950CFD /* ForgetViewController.m in Sources */,
 				B5EAC4FA2387A32400373E21 /* BindViewController.m in Sources */,
+				B5AA639C2388323400FACF9D /* MBProgressHUD.m in Sources */,
+				B54468592393B9CF00F82BD6 /* MessageTableViewCell.m in Sources */,
 				B5EC4BE82376E5BE00950CFD /* main.m in Sources */,
+				B5AA63A02388416000FACF9D /* OwerViewController.m in Sources */,
 				B5EC4BDA2376E5BB00950CFD /* AppDelegate.m in Sources */,
 				B5EC4C1F2376F69200950CFD /* MainViewController.m in Sources */,
 				B502BEF62377A8E800F6C81A /* PersonalHeadView.m in Sources */,
 				B5EAC4F22386F62000373E21 /* SelectPhotoViewController.m in Sources */,
+				B5021DF92394CB9700654DC6 /* GKCycleScrollViewCell.m in Sources */,
 				B5EC4C1B2376F3D700950CFD /* UserInfo.m in Sources */,
 				B5EAC4E82386E9DE00373E21 /* UIViewController+XHPhoto.m in Sources */,
 				B5EC4C0D2376E98800950CFD /* RegistViewController.m in Sources */,
@@ -430,6 +578,7 @@
 				B5EAC4E52386E73700373E21 /* friendsViewController.m in Sources */,
 				B5EAC4E22386E70A00373E21 /* newsViewController.m in Sources */,
 				B502BEEE23779EB200F6C81A /* PersonalViewController.m in Sources */,
+				B5021DFD2394CBF700654DC6 /* testViewController.m in Sources */,
 				B5C5AFF5237712760047A1FD /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -591,6 +740,7 @@
 		};
 		B5EC4C022376E5BE00950CFD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EAC445B5AD6182196DD77FBD /* Pods-nuonuo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -609,6 +759,7 @@
 		};
 		B5EC4C032376E5BE00950CFD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6535FE0789FBC3C1C3FC9A05 /* Pods-nuonuo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

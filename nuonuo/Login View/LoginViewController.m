@@ -15,6 +15,8 @@
 #import "HomeViewController.h"
 #import "TabBarViewController.h"
 
+#import "LCProgressHUD.h"
+
 @interface LoginViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *phoneText;
 @property (weak, nonatomic) IBOutlet UITextField *passwordText;
@@ -54,6 +56,9 @@ static const CGFloat kTimeOutTime = 10.f;
     self.passwordText.placeholder = @"密码";
     [self.passwordText setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
 
+//    self.phoneText.text = @"18965688000";
+//    self.passwordText.text = @"yjn123";
+    
     self.phoneText.text = @"13107936362";
     self.passwordText.text = @"lxx123";
     
@@ -77,7 +82,7 @@ static const CGFloat kTimeOutTime = 10.f;
         [self showError:@"请输入密码"];
         return;
     }
-    
+
     [self login];
 }
 
@@ -117,16 +122,17 @@ static const CGFloat kTimeOutTime = 10.f;
             NSArray *arr = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
             NSLog(@"login返回正确：%@",arr);
             
+//            NSString *str = @"";
+//            if([dict objectForKey:@"status"]!=NULL){
+//                str=[NSString stringWithFormat:@"%@",[dict objectForKey:@"status"]];
+//            }
+
             dispatch_async(dispatch_get_main_queue(), ^{
-//                MainViewController *mvc = [[MainViewController alloc ] init];
-//                // 获取主代理
-//                AppDelegate *delegete = (AppDelegate *)[[UIApplication  sharedApplication] delegate];
-//                delegete.window.rootViewController = mvc;
-                
                 TabBarViewController *tvc = [[TabBarViewController alloc ] init];
-                // 获取主代理
                 AppDelegate *delegete = (AppDelegate *)[[UIApplication  sharedApplication] delegate];
                 delegete.window.rootViewController = tvc;
+                
+
             });
             
         }else{

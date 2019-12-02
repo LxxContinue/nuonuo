@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)connetNetWithGetMethod:(NSString *)handle parms:(NSDictionary *)params block:(void (^)(int, NSString *, NSDictionary *))block;
 
+-(void)connetNetWithPutMethod:(NSString *)handle parms:(NSDictionary *)params block:(void (^)(int, NSString *, NSDictionary *))block ;
+
 -(void)sendImageWithImage:(UIImage *)img block:(void(^)(NSString * imageId, BOOL isFailed))block;
 
 @end

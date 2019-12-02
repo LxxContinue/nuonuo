@@ -49,6 +49,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    [self updateUserInfo];
+    
     [self.navigationController setNavigationBarHidden:YES animated:animated];
 }
 
@@ -56,7 +58,24 @@
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:animated];
 }
-
+- (void)updateUserInfo
+{
+    LxxInterfaceConnection *connect = [[LxxInterfaceConnection alloc] init];
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    [connect connetNetWithGetMethod:@"nuoUsers/info" parms:dic block:^(int fail,NSString *dataMessage,NSDictionary *dictionary){
+        if(fail == 0) {
+            UserInfo *userInfo = [[UserInfo alloc] initWithNSDictionary:[dictionary objectForKey:@"data"]];
+            NSData *data = [NSKeyedArchiver archivedDataWithRootObject:userInfo];
+            [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"userInfo"];
+            [[NSUserDefaults standardUserDefaults] setObject:userInfo.accessToken forKey:@"accessToken"];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.userInfo = userInfo;
+                [self.tableView reloadData];
+            });
+        }
+    }];
+}
 
 #pragma mark - Private DataConfiguration
 - (void)dataConfiguration{
@@ -123,6 +142,7 @@
     
     if(indexPath.row ==0){
         SettingTableViewController *svc  = [[SettingTableViewController alloc]init];
+        svc.userInfo = self.userInfo;
         svc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:svc animated:YES];
     }
@@ -197,7 +217,7 @@
             NSDictionary *dic = [dictionary objectForKey:@"data"];
 
             NSMutableArray *arr = [[NSMutableArray alloc]init];
-            arr = [dic objectForKey:@"otherPicIds"];
+            arr = [dic objectForKey:@"otherPicNames"];
 
             dispatch_async(dispatch_get_main_queue(), ^{
                 
@@ -207,12 +227,21 @@
                     bvc.Binding = NO;
                 }else {
                     bvc.Binding = YES;
+                    bvc.carPicStr = arr[0];
                     NSLog(@"%@",arr[0]);
                 }
+                
                 bvc.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:bvc animated:YES];
 
             });
+        }
+        else{
+            BindViewController *bvc = [[BindViewController alloc]init];
+            bvc.token = self.userInfo.accessToken;
+            bvc.Binding = NO;
+            bvc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:bvc animated:YES];
         }
     }];
     

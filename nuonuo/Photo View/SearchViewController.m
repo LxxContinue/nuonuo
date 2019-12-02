@@ -8,6 +8,7 @@
 
 #import "SearchViewController.h"
 #import "LxxInterfaceConnection.h"
+#import "OwerViewController.h"
 
 @interface SearchViewController ()
 
@@ -54,7 +55,7 @@
 
 
 -(void)getDetail{
-    NSString *getStr = [NSString stringWithFormat:@"photo/%s","1223"];
+    NSString *getStr = [NSString stringWithFormat:@"photo/%@",@"sycnz"];
     
     NSMutableDictionary * parm = [[NSMutableDictionary alloc]init];
     LxxInterfaceConnection *connect = [[LxxInterfaceConnection alloc] init];
@@ -84,6 +85,24 @@
     NSDictionary *dic = [[NSDictionary alloc]initWithDictionary:self.infoArr[0]];
     label.text = [NSString stringWithFormat:@"姓名：%@",[dic objectForKey:@"name"]];
     [self.view addSubview:label];
+    
+    UILabel *carIDLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 300, 300, 30)];
+    carIDLabel.text = [NSString stringWithFormat:@"车牌：%@",self.carID];
+    [self.view addSubview:carIDLabel];
+    
+    
+    UIButton *confirmBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    confirmBtn.frame = CGRectMake(30, 300, 100, 30);
+    [confirmBtn setBackgroundColor:[UIColor blueColor]];
+    [confirmBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [confirmBtn setTitle:@"确认" forState:UIControlStateNormal];
+    [confirmBtn addTarget:self action:@selector(confirmAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:confirmBtn];
+}
+
+-(void)confirmAction{
+    OwerViewController *ovc = [[OwerViewController alloc]init];
+    [self.navigationController pushViewController:ovc animated:YES];
 }
 
 @end

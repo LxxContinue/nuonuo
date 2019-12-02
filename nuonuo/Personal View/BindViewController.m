@@ -12,6 +12,8 @@
 #import "UIViewController+XHPhoto.h"
 #import "SelectPhotoViewController.h"
 
+#import "SDWebImage/UIImageView+WebCache.h"
+
 @interface BindViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *photoBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *photoView;
@@ -28,8 +30,14 @@ static const CGFloat kTimeOutTime = 10.f;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if(self.Binding){
+        self.navigationItem.title = @"已绑定";
+    }else {
+        self.navigationItem.title = @"未绑定";
+    }
     
-    //self.navigationItem.title = @"绑定";
+    //self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]}; 
     
     self.edgesForExtendedLayout=UIRectEdgeNone;
     self.navigationController.navigationBar.translucent = YES;
@@ -41,6 +49,10 @@ static const CGFloat kTimeOutTime = 10.f;
     self.confirmBtn.hidden = YES;
     if(self.Binding){
         self.photoBtn.hidden = YES;
+        
+        if(![self.carPicStr isEqualToString:@""]){
+            [self.photoView sd_setImageWithURL:[NSURL URLWithString:self.carPicStr] placeholderImage:[UIImage imageNamed:@"加载中"]];
+        }
     }
     
     NSLog(@"token :%@",self.token);
@@ -116,7 +128,7 @@ static const CGFloat kTimeOutTime = 10.f;
                         self.photoBtn.hidden = YES;
                         self.confirmBtn.hidden = NO;
                         
-                        self.carID = @"sycnz";
+                        self.carID = @"synz2";
                         self.carImageID = imageId;
                         
                         NSLog(@"photo id %@",imageId);
@@ -191,7 +203,7 @@ static const CGFloat kTimeOutTime = 10.f;
             NSLog(@"upload 返回正确：%@",arr);
             
             dispatch_async(dispatch_get_main_queue(), ^{
-
+                [self.navigationController popViewControllerAnimated:YES];
             });
             
         }else{

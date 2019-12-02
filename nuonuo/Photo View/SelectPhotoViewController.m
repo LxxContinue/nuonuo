@@ -7,8 +7,13 @@
 //
 
 #import "SelectPhotoViewController.h"
+#import "SearchViewController.h"
+
+#import "OwerViewController.h"
 
 @interface SelectPhotoViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *idLabel;
+
 
 @end
 
@@ -29,11 +34,118 @@
     [returnBtn addTarget:self action:@selector(popAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:returnBtn];
     
+    [self sendOCRRequest:self.image];
+    
+}
 
+
+- (IBAction)confirmAction:(UIButton *)sender {
+    
+    SearchViewController *svc = [[SearchViewController alloc]init];
+    svc.carID = [NSString stringWithFormat:@"%@",self.idLabel.text];
+    [self.navigationController pushViewController:svc animated:YES];
+    
+//    OwerViewController *svc = [[OwerViewController alloc]init];
+//    [self.navigationController pushViewController:svc animated:YES];
 }
 
 -(void)popAction{
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (NSString *)change:(UIImage*)image{
+    //UIImage图片转Base64字符串：
+    
+    UIImage *originImage = image;
+    
+    NSData *imgData = UIImageJPEGRepresentation(originImage, 1.0f);
+    
+    NSString *encodedImageStr = [imgData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    
+    //Base64字符串转UIImage图片：
+    
+    NSData *decodedImageData = [[NSData alloc]initWithBase64EncodedString:encodedImageStr options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    
+    UIImage *decodedImage = [UIImage imageWithData:decodedImageData];
+    //self.imageView.image = decodedImage;
+    return [self urlEncodeStr:encodedImageStr];
+    
+}
+/**
+ *  URLEncode
+ */
+- (NSString *)urlEncodeStr:(NSString *)input{
+    NSString *charactersToEscape = @"?!@#$^&%*+,:;='\"`<>()[]{}/\\| ";
+    NSCharacterSet *allowedCharacters = [[NSCharacterSet characterSetWithCharactersInString:charactersToEscape] invertedSet];
+    NSString *upSign = [input stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters];
+    return upSign;
+}
+
+/**
+ *  URLDecode
+ */
+-(NSString *)URLDecodedStringWithEncodedStr:(NSString *)encodedString{
+    NSString *decodedString  = (__bridge_transfer NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL,(__bridge CFStringRef)encodedString,CFSTR(""),CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
+    return decodedString;
+}
+- (void)sendOCRRequest:(UIImage *)image{
+    NSDictionary *headers = @{ @"Content-Type": @"application/x-www-form-urlencoded",
+                               @"cache-control": @"no-cache",
+                               @"Postman-Token": @"62eed723-01d9-4ad8-849a-73d99417edc3" };
+    
+    NSString *str1 = @"image=";
+    NSString *str  = [str1 stringByAppendingFormat:@"%@", [self change:image]];
+    NSMutableData *postData = [[NSMutableData alloc] initWithData:[str dataUsingEncoding:NSUTF8StringEncoding]];
+    //[postData appendData:[@"&detect_direction=true" dataUsingEncoding:NSUTF8StringEncoding]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic?access_token=24.75b832dfb59d0baef0999680113c2973.2592000.1576852660.282335-17818844"]
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:10.0];
+    [request setHTTPMethod:@"POST"];
+    [request setAllHTTPHeaderFields:headers];
+    [request setHTTPBody:postData];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
+                                                completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                    if (error) {
+                                                        NSLog(@"%@", error);
+                                                    } else {
+                                                        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+                                                        NSLog(@"%@", httpResponse);
+                                                        NSString * str  =[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                                        NSLog(@"%@",str);
+                                                        
+                                                        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+                                                        
+                                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                                            
+//                                                            //self.textView.text = str;
+
+                                                            NSArray *arr = [[NSArray alloc]init];
+                                                            arr = [dict objectForKey:@"words_result"];
+                                                            
+                                                            for(NSDictionary *dic in arr ){
+                                                                NSString *numStr =[dic objectForKey:@"words"];
+                                                                NSLog(@"num  %@--%lu",numStr,(unsigned long)numStr.length);
+                                                                if (numStr.length == 5) {
+                                                                    self.idLabel.text = [dic objectForKey:@"words"];
+                                                                    break;
+                                                                }
+                                                            }
+                                                            if([self.idLabel.text isEqualToString:@"车牌"]){
+                                                                self.idLabel.text = @"未识别车牌";
+                                                            }
+                                                            
+                                                            
+//                                                            NSDictionary *dic =
+//                                                            dic = arr[1];
+//
+//                                                            self.idLabel.text = [dic objectForKey:@"words"];
+                                                            
+                                                        });
+                                                    }
+                                                }];
+    [dataTask resume];
 }
 
 @end
