@@ -15,7 +15,7 @@
 #import <Masonry/Masonry.h>
 #import "SDWebImage/UIImageView+WebCache.h"
 
-#import "ToolViewController.h"
+#import "ToolCollect.h"
 #import "UserInfo.h"
 
 

@@ -10,13 +10,11 @@
 #import "MessageTableViewCell.h"
 #import "LxxInterfaceConnection.h"
 
-#import "ToolViewController.h"
+#import "ToolCollect.h"
 
 #import "SDWebImage/UIImageView+WebCache.h"
 
 @interface MessageTabelViewController ()<UITableViewDataSource,UITableViewDelegate>
-
-
 
 @property (nonatomic, strong) UIView * menuView;
 @property (nonatomic, strong) UIButton *firstButton;
@@ -28,7 +26,6 @@
 
 @property (nonatomic) CGFloat menuWidth;
 @property (nonatomic) CGFloat menuHeight;
-
 
 @property (nonatomic,strong) UITableView *tableView;
 @property NSArray *dataSource;
@@ -154,8 +151,8 @@
 
 -(void)loadData{
     NSString *getStr = [NSString stringWithFormat:@"message"];
-    
     NSMutableDictionary * parm = [[NSMutableDictionary alloc]init];
+    
     LxxInterfaceConnection *connect = [[LxxInterfaceConnection alloc] init];
     [connect connetNetWithGetMethod:getStr parms:parm block:^(int fail,NSString *dataMessage,NSDictionary *dictionary) {
         if (fail ==0) {
@@ -170,8 +167,6 @@
             });
         }
     }];
-    
-    
 }
 
 
@@ -181,9 +176,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
     return self.dataSource.count;
-   //return 10;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -208,7 +201,13 @@
     
     cell.nameLabel.text = [dic objectForKey:@"sendName"];
     cell.messageLabel.text = [dic objectForKey:@"content"];
-    cell.messageLabel.text = [dic objectForKey:@"content"];
+    
+    //活动发布时间
+    NSString *publishTimeDelta = [self processTime:[dic objectForKey:@"stateTime"]];
+    cell.timeLabel.text = publishTimeDelta;
+    //cell.timeLabel.text = [dic objectForKey:@"stateTime"];
+
+    
     NSString *headUrl = [dic objectForKey:@"headPicUrl"];
     if(![headUrl isEqualToString:@""]){
         [cell.headImage sd_setImageWithURL:[NSURL URLWithString:headUrl] placeholderImage:[UIImage imageNamed:@"加载中"]];

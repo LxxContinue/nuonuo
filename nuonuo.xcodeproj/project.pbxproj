@@ -15,7 +15,7 @@
 		B5021E9F239528F300654DC6 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5021E99239528F300654DC6 /* TAAnimatedDotView.m */; };
 		B5021EA0239528F300654DC6 /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5021E9B239528F300654DC6 /* TADotView.m */; };
 		B5021EA1239528F300654DC6 /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B5021E9D239528F300654DC6 /* TAPageControl.m */; };
-		B5021EA423952CB900654DC6 /* ToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5021EA323952CB900654DC6 /* ToolViewController.m */; };
+		B5021EA7239541EA00654DC6 /* ToolCollect.m in Sources */ = {isa = PBXBuildFile; fileRef = B5021EA6239541EA00654DC6 /* ToolCollect.m */; };
 		B502BEEE23779EB200F6C81A /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B502BEED23779EB200F6C81A /* PersonalViewController.m */; };
 		B502BEF62377A8E800F6C81A /* PersonalHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = B502BEF52377A8E800F6C81A /* PersonalHeadView.m */; };
 		B502BEF82377A97200F6C81A /* PersonalHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B502BEF72377A97200F6C81A /* PersonalHeadView.xib */; };
@@ -93,8 +93,8 @@
 		B5021E9B239528F300654DC6 /* TADotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TADotView.m; sourceTree = "<group>"; };
 		B5021E9C239528F300654DC6 /* TAPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAPageControl.h; sourceTree = "<group>"; };
 		B5021E9D239528F300654DC6 /* TAPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPageControl.m; sourceTree = "<group>"; };
-		B5021EA223952CB900654DC6 /* ToolViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolViewController.h; sourceTree = "<group>"; };
-		B5021EA323952CB900654DC6 /* ToolViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolViewController.m; sourceTree = "<group>"; };
+		B5021EA5239541EA00654DC6 /* ToolCollect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolCollect.h; sourceTree = "<group>"; };
+		B5021EA6239541EA00654DC6 /* ToolCollect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolCollect.m; sourceTree = "<group>"; };
 		B502BEEC23779EB200F6C81A /* PersonalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalViewController.h; sourceTree = "<group>"; };
 		B502BEED23779EB200F6C81A /* PersonalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
 		B502BEF42377A8E800F6C81A /* PersonalHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalHeadView.h; sourceTree = "<group>"; };
@@ -302,8 +302,8 @@
 				B5AA63972388317B00FACF9D /* LCProgressHUD.m */,
 				B5AA639A2388323400FACF9D /* MBProgressHUD.h */,
 				B5AA639B2388323400FACF9D /* MBProgressHUD.m */,
-				B5021EA223952CB900654DC6 /* ToolViewController.h */,
-				B5021EA323952CB900654DC6 /* ToolViewController.m */,
+				B5021EA5239541EA00654DC6 /* ToolCollect.h */,
+				B5021EA6239541EA00654DC6 /* ToolCollect.m */,
 			);
 			path = "Tool Group";
 			sourceTree = "<group>";
@@ -591,6 +591,7 @@
 				B5021E9E239528F300654DC6 /* TAAbstractDotView.m in Sources */,
 				B5AA63992388317C00FACF9D /* LCProgressHUD.m in Sources */,
 				B5EC4C122376EA3F00950CFD /* LoginViewController.m in Sources */,
+				B5021EA7239541EA00654DC6 /* ToolCollect.m in Sources */,
 				B5EAC4DC238697F600373E21 /* SearchViewController.m in Sources */,
 				B54468552393AD0F00F82BD6 /* MessageTabelViewController.m in Sources */,
 				B5EC4C172376EBBF00950CFD /* ForgetViewController.m in Sources */,
@@ -600,7 +601,6 @@
 				B54468592393B9CF00F82BD6 /* MessageTableViewCell.m in Sources */,
 				B5EC4BE82376E5BE00950CFD /* main.m in Sources */,
 				B5AA63A02388416000FACF9D /* OwerViewController.m in Sources */,
-				B5021EA423952CB900654DC6 /* ToolViewController.m in Sources */,
 				B5EC4BDA2376E5BB00950CFD /* AppDelegate.m in Sources */,
 				B5EC4C1F2376F69200950CFD /* MainViewController.m in Sources */,
 				B502BEF62377A8E800F6C81A /* PersonalHeadView.m in Sources */,

@@ -9,7 +9,7 @@
 #import "SettingTableViewController.h"
 #import "LxxInterfaceConnection.h"
 
-#import "ToolViewController.h"
+#import "ToolCollect.h"
 
 @interface SettingTableViewController ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 

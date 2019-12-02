@@ -19,7 +19,7 @@
 #import "SelectPhotoViewController.h"
 #import "BindViewController.h"
 
-#import "ToolViewController.h"
+#import "ToolCollect.h"
 
 @interface PersonalViewController ()<UITableViewDelegate,UITableViewDataSource>
 

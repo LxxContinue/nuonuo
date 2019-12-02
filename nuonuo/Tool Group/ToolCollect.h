@@ -1,5 +1,5 @@
 //
-//  ToolViewController.h
+//  ToolCollect.h
 //  nuonuo
 //
 //  Created by LXX on 2019/12/2.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ToolViewController : UIViewController
+@interface  UIViewController(netDateDeal)
 
 #define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
 #define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
@@ -22,6 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 #define kIs_iphone (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 #define kIs_iPhoneX SCREEN_WIDTH >=375.0f && SCREEN_HEIGHT >=812.0f&& kIs_iphone
 #define kStatusBarHeight (CGFloat)(kIs_iPhoneX?(44.0):(20.0))
+
+-(NSString *)processTime:(NSString *)publishTimeStr;
+
 
 @end
 
