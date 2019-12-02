@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SearchViewController : UIViewController
 
 @property (nonatomic, strong) NSString *carID;                           /**< 车车ID */
+@property (nonatomic,strong) NSMutableArray *infoArr;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "SelectPhotoViewController.h"
 #import "SearchViewController.h"
-
+#import "LxxInterfaceConnection.h"
 #import "OwerViewController.h"
 
 @interface SelectPhotoViewController ()
@@ -38,14 +38,34 @@
     
 }
 
-
 - (IBAction)confirmAction:(UIButton *)sender {
+    NSString *inputCarID = [NSString stringWithFormat:@"%@",self.idLabel.text];;
+    NSString *getStr = [NSString stringWithFormat:@"photo/%@",inputCarID];
     
-    SearchViewController *svc = [[SearchViewController alloc]init];
-    svc.carID = [NSString stringWithFormat:@"%@",self.idLabel.text];
-    [self.navigationController pushViewController:svc animated:YES];
+    NSMutableDictionary * parm = [[NSMutableDictionary alloc]init];
+    LxxInterfaceConnection *connect = [[LxxInterfaceConnection alloc] init];
+    [connect connetNetWithGetMethod:getStr parms:parm block:^(int fail,NSString *dataMessage,NSDictionary *dictionary) {
+        if (fail ==0) {
+            NSLog(@"search dataMessage：%@",dataMessage);
+            
+            //获取匹配到的车信息
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            arr = [dictionary objectForKey:@"data"];
+            NSLog(@"search arr：%@",arr);
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                SearchViewController *svc = [[SearchViewController alloc]init];
+                svc.infoArr = arr;
+                svc.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:svc animated:YES];
+                
+            });
+        }
+    }];
     
-//    OwerViewController *svc = [[OwerViewController alloc]init];
+//    SearchViewController *svc = [[SearchViewController alloc]init];
+//    svc.carID = [NSString stringWithFormat:@"%@",self.idLabel.text];
 //    [self.navigationController pushViewController:svc animated:YES];
 }
 

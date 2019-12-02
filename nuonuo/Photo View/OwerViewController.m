@@ -9,13 +9,17 @@
 #import "OwerViewController.h"
 #import "UserInfo.h"
 #import "LxxInterfaceConnection.h"
+#import "HomeViewController.h"
 
 @interface OwerViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *headImage;
 @property (weak, nonatomic) IBOutlet UIButton *messageBtn;
 @property (weak, nonatomic) IBOutlet UIButton *phoneBtn;
+
 @property (nonatomic) NSString * token ;
+
+@property (nonatomic) NSString * message ;
 
 @end
 
@@ -43,6 +47,9 @@ static const CGFloat kTimeOutTime = 10.f;
 }
 #pragma mark - Private DataConfiguration
 - (void)dataConfiguration{
+    self.message = [[NSString alloc]init];
+    
+    
     self.headImage.layer.cornerRadius = 50;
     self.headImage.layer.masksToBounds = YES;
     
@@ -71,8 +78,36 @@ static const CGFloat kTimeOutTime = 10.f;
 - (IBAction)messageAction:(UIButton *)sender {
     NSLog(@"message!");
     
-    NSString *str = [NSString stringWithFormat:@"http://xyt.fzu.edu.cn:54321/v1/message/%@",@"2"];
-
+    UIAlertController *InputAlert = [UIAlertController alertControllerWithTitle:@"请输入您要发送的消息" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [InputAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.text = @"";
+        textField.returnKeyType = UIReturnKeyDone;
+        [textField addTarget:self action:@selector(strDidChanged:)
+            forControlEvents:UIControlEventEditingChanged];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *saveAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        self.message = InputAlert.textFields.firstObject.text;
+        [self messageConfirm];
+    }];
+    saveAction.enabled = NO;
+    [InputAlert addAction:cancelAction];
+    [InputAlert addAction:saveAction];
+    [self presentViewController:InputAlert animated:YES completion:nil];
+}
+- (void)strDidChanged:(UITextField *)sender {
+    UIAlertController *alertController = (UIAlertController *)self.presentedViewController;
+    if(alertController) {
+        NSString *inputMail = alertController.textFields.firstObject.text;
+        UIAlertAction *saveAction = alertController.actions.lastObject;
+        if(![inputMail isEqualToString:@""]) {
+            saveAction.enabled = YES;
+        }
+        
+    }
+}
+-(void)messageConfirm{
+    NSString *str = [NSString stringWithFormat:@"http://xyt.fzu.edu.cn:54321/v1/message/%@",self.owerId];
     NSURL *url = [NSURL URLWithString:str];
     
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:kTimeOutTime];
@@ -80,48 +115,12 @@ static const CGFloat kTimeOutTime = 10.f;
     
     [request setValue:self.token forHTTPHeaderField:@"Authorization"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-
     
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    [dic setObject:@"辣鸡软工是真的垃圾" forKey:@"content"];
+    [dic setObject:self.message forKey:@"content"];
     
     NSData *data = [NSJSONSerialization dataWithJSONObject:dic options:0 error:nil];
     request.HTTPBody = data;
-    
-//    NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
-//    [dic setObject:@"what" forKey:@"content"];
-//
-//    NSError *error;
-//    [request setHTTPBody:[NSJSONSerialization dataWithJSONObject:dic options:0 error:&error]];
-    
-
-    
-    
-    
-    
-    
-//    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-//    [dic setObject:@"what" forKey:@"content"];
-    
-//    NSData *data = [NSJSONSerialization dataWithJSONObject:dic options:0 error:nil];
-//    request.HTTPBody = data;
-    
-//    NSString *content =@"";
-//    content=[NSString stringWithFormat:@"%@=%@",@"content",@"what"];
-//
-//    NSMutableData *postBody=[NSMutableData data];
-//    [postBody appendData:[content dataUsingEncoding:NSUTF8StringEncoding]];
-//    request.HTTPBody = postBody;
-    
-
-    
-//    NSString *content = @"";
-//    content = [self convertToJsonData:dic];
-//    NSLog(@"contentStr:%@",content);
-//    NSData * data = [content dataUsingEncoding:NSUTF8StringEncoding];
-//    request.HTTPBody = data;
-    
-    
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[[NSOperationQueue alloc]init]];
     
@@ -134,8 +133,23 @@ static const CGFloat kTimeOutTime = 10.f;
             
             NSLog(@"rrrdata2:%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
             
+            UIAlertController *successAlert = [UIAlertController alertControllerWithTitle:nil message:@"消息已发出，请耐心等待" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"完成" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                
+                for (UIViewController *controller in self.navigationController.viewControllers)
+                {
+                    if ([controller isKindOfClass:[HomeViewController class]]) {
+                        HomeViewController *hvc =(HomeViewController *)controller;
+                        [self.navigationController popToViewController:hvc animated:YES];
+                    }
+                }
+            }];
+            [successAlert addAction:confirmAction];
+            [self presentViewController:successAlert animated:YES completion:nil];
+            
+            
             dispatch_async(dispatch_get_main_queue(), ^{
-
+                
             });
             
         }else{
@@ -144,9 +158,8 @@ static const CGFloat kTimeOutTime = 10.f;
         }
     }];
     [dataTask resume];
-    
-    
 }
+
 - (IBAction)phoneAction:(UIButton *)sender {
     NSLog(@"phone!");
 }

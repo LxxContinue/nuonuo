@@ -10,9 +10,22 @@
 #import "LxxInterfaceConnection.h"
 #import "OwerViewController.h"
 
-@interface SearchViewController ()
+#import "GKCycleScrollView.h"
+#import "GKPageControl.h"
+#import <Masonry/Masonry.h>
+#import "SDWebImage/UIImageView+WebCache.h"
 
-@property (nonatomic,strong) NSMutableArray *infoArr;
+#import "ToolViewController.h"
+#import "UserInfo.h"
+
+
+@interface SearchViewController ()<GKCycleScrollViewDataSource, GKCycleScrollViewDelegate>
+
+
+
+@property (nonatomic) NSInteger infoIndex;
+
+@property (nonatomic) NSString * token ;
 
 @end
 
@@ -28,12 +41,10 @@
 //    self.navigationItem.leftBarButtonItem = leftBarItem;
 //    self.navigationController.navigationBar.backgroundColor = [UIColor whiteColor];
 ////    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:62.0/255 green:54.0/255 blue:139.0/255 alpha:1.0];
-    
 
-    
+
     [self dataConfiguration];
     [self getDetail];
-    
 }
 
 -(void)popAction{
@@ -42,6 +53,12 @@
 
 #pragma mark - Private DataConfiguration
 - (void)dataConfiguration{
+    NSData *deData = [[NSUserDefaults standardUserDefaults] objectForKey:@"userInfo"];
+    UserInfo * userInfo = [NSKeyedUnarchiver unarchiveObjectWithData:deData];
+    self.token = userInfo.accessToken;
+    
+    self.infoArr = [[NSMutableArray alloc]init];
+    
     UIButton * returnBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     returnBtn.frame = CGRectMake(20, 40, 27, 22);
     [returnBtn setImage:[UIImage imageNamed:@"返回"] forState:UIControlStateNormal];
@@ -53,56 +70,107 @@
     [self.view addSubview:returnBtn];
 }
 
-
 -(void)getDetail{
     NSString *getStr = [NSString stringWithFormat:@"photo/%@",@"sycnz"];
-    
+
     NSMutableDictionary * parm = [[NSMutableDictionary alloc]init];
     LxxInterfaceConnection *connect = [[LxxInterfaceConnection alloc] init];
     [connect connetNetWithGetMethod:getStr parms:parm block:^(int fail,NSString *dataMessage,NSDictionary *dictionary) {
         if (fail ==0) {
-            
             NSLog(@"search dataMessage：%@",dataMessage);
-            
+
             //获取匹配到的车信息
-            self.infoArr = [[NSMutableArray alloc]init];
             self.infoArr = [dictionary objectForKey:@"data"];
-            
+
             NSLog(@"search arr：%@",self.infoArr);
 
-            
             dispatch_async(dispatch_get_main_queue(), ^{
 
                 [self setupView];
             });
         }
     }];
-    
 }
 
 -(void)setupView{
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(100, 100, 300, 30)];
-    NSDictionary *dic = [[NSDictionary alloc]initWithDictionary:self.infoArr[0]];
-    label.text = [NSString stringWithFormat:@"姓名：%@",[dic objectForKey:@"name"]];
-    [self.view addSubview:label];
-    
-    UILabel *carIDLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 300, 300, 30)];
-    carIDLabel.text = [NSString stringWithFormat:@"车牌：%@",self.carID];
-    [self.view addSubview:carIDLabel];
-    
     
     UIButton *confirmBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    confirmBtn.frame = CGRectMake(30, 300, 100, 30);
-    [confirmBtn setBackgroundColor:[UIColor blueColor]];
-    [confirmBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [confirmBtn setTitle:@"确认" forState:UIControlStateNormal];
+    confirmBtn.frame = CGRectMake(SCREEN_WIDTH/2-32,SCREEN_HEIGHT-100, 64, 64);
+    [confirmBtn setImage:[UIImage imageNamed:@"打勾"] forState:UIControlStateNormal];
     [confirmBtn addTarget:self action:@selector(confirmAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:confirmBtn];
+    
+    [self scrollView];
+}
+//车牌匹配的结果
+-(void)scrollView{
+    GKCycleScrollView *cycleScrollView = [[GKCycleScrollView alloc] init];
+    cycleScrollView.dataSource = self;
+    cycleScrollView.delegate = self;
+    cycleScrollView.minimumCellAlpha = 0.0;
+    cycleScrollView.leftRightMargin = 20.0f;
+    cycleScrollView.topBottomMargin = 20.0f;
+    cycleScrollView.isAutoScroll = NO;
+    cycleScrollView.frame = CGRectMake(0, 100, self.view.frame.size.width, 500);
+    [self.view addSubview:cycleScrollView];
+    
+    GKPageControl *pageControl = [[GKPageControl alloc] init];
+    pageControl.frame = CGRectMake(0, cycleScrollView.frame.size.height-36, SCREEN_WIDTH, 30);
+    //pageControl3.style = GKPageControlStyleSizeDot;
+    pageControl.pageIndicatorTintColor = [UIColor colorWithRed:157/255.0 green:157/255.0 blue:157/255.0 alpha:1.0];
+    pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:25.0/255 green:0 blue:131.0/255 alpha:1.0];
+    cycleScrollView.pageControl = pageControl;
+    [cycleScrollView addSubview:pageControl];
+    [cycleScrollView reloadData];
 }
 
 -(void)confirmAction{
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
+    dic = self.infoArr[self.infoIndex];
+    
     OwerViewController *ovc = [[OwerViewController alloc]init];
+    ovc.owerId = [dic objectForKey:@"id"];
     [self.navigationController pushViewController:ovc animated:YES];
 }
+
+#pragma mark - GKCycleScrollViewDataSource
+- (NSInteger)numberOfCellsInCycleScrollView:(GKCycleScrollView *)cycleScrollView {
+    return self.infoArr.count;
+}
+
+- (GKCycleScrollViewCell *)cycleScrollView:(GKCycleScrollView *)cycleScrollView cellForViewAtIndex:(NSInteger)index {
+    GKCycleScrollViewCell *cell = [cycleScrollView dequeueReusableCell];
+    if (!cell) {
+        cell = [GKCycleScrollViewCell new];
+        cell.layer.cornerRadius = 15;
+        cell.layer.masksToBounds = YES;
+        cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    }
+    
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
+    dic = self.infoArr[index];
+    NSLog(@"!!!%@",dic);
+    
+//    NSString *headStr = [NSString stringWithFormat:@"%@",[dic objectForKey:@"otherPicNames"]];
+    NSString *headStr = [NSString stringWithFormat:@"%@",@"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2379750824,3935342609&fm=26&gp=0.jpg"];
+    
+    
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:headStr]];
+    NSLog(@"headstr: %@",headStr);
+    cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    
+    return cell;
+}
+#pragma mark - GKCycleScrollViewDelegate
+- (CGSize)sizeForCellInCycleScrollView:(GKCycleScrollView *)cycleScrollView {
+    return CGSizeMake(ceilf(kAdapter(560.0f)), kAdapter(850.0f));
+}
+
+- (void)cycleScrollView:(GKCycleScrollView *)cycleScrollView didScrollCellToIndex:(NSInteger)index {
+    self.infoIndex = index;
+    
+    
+}
+
 
 @end

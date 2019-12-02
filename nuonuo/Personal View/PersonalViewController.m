@@ -19,12 +19,7 @@
 #import "SelectPhotoViewController.h"
 #import "BindViewController.h"
 
-#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
-#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
-
-#define kIs_iphone (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-#define kIs_iPhoneX SCREEN_WIDTH >=375.0f && SCREEN_HEIGHT >=812.0f&& kIs_iphone
-#define kStatusBarHeight (CGFloat)(kIs_iPhoneX?(44.0):(20.0))
+#import "ToolViewController.h"
 
 @interface PersonalViewController ()<UITableViewDelegate,UITableViewDataSource>
 

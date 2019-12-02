@@ -8,9 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		5A07057720F3DB9E19B0107F /* Pods_nuonuo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 817392659A563C153596863B /* Pods_nuonuo.framework */; };
-		B5021DF82394CB9700654DC6 /* GKCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5021DF62394CB9700654DC6 /* GKCycleScrollView.m */; };
-		B5021DF92394CB9700654DC6 /* GKCycleScrollViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B5021DF72394CB9700654DC6 /* GKCycleScrollViewCell.m */; };
-		B5021DFD2394CBF700654DC6 /* testViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5021DFC2394CBF700654DC6 /* testViewController.m */; };
+		B5021E92239528D600654DC6 /* GKCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5021E8D239528D600654DC6 /* GKCycleScrollView.m */; };
+		B5021E93239528D600654DC6 /* GKCycleScrollViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B5021E8F239528D600654DC6 /* GKCycleScrollViewCell.m */; };
+		B5021E94239528D600654DC6 /* GKPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B5021E91239528D600654DC6 /* GKPageControl.m */; };
+		B5021E9E239528F300654DC6 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5021E97239528F300654DC6 /* TAAbstractDotView.m */; };
+		B5021E9F239528F300654DC6 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5021E99239528F300654DC6 /* TAAnimatedDotView.m */; };
+		B5021EA0239528F300654DC6 /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5021E9B239528F300654DC6 /* TADotView.m */; };
+		B5021EA1239528F300654DC6 /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B5021E9D239528F300654DC6 /* TAPageControl.m */; };
+		B5021EA423952CB900654DC6 /* ToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5021EA323952CB900654DC6 /* ToolViewController.m */; };
 		B502BEEE23779EB200F6C81A /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B502BEED23779EB200F6C81A /* PersonalViewController.m */; };
 		B502BEF62377A8E800F6C81A /* PersonalHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = B502BEF52377A8E800F6C81A /* PersonalHeadView.m */; };
 		B502BEF82377A97200F6C81A /* PersonalHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B502BEF72377A97200F6C81A /* PersonalHeadView.xib */; };
@@ -74,12 +79,22 @@
 /* Begin PBXFileReference section */
 		6535FE0789FBC3C1C3FC9A05 /* Pods-nuonuo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nuonuo.release.xcconfig"; path = "Pods/Target Support Files/Pods-nuonuo/Pods-nuonuo.release.xcconfig"; sourceTree = "<group>"; };
 		817392659A563C153596863B /* Pods_nuonuo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nuonuo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5021DF42394CB9600654DC6 /* GKCycleScrollViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKCycleScrollViewCell.h; sourceTree = "<group>"; };
-		B5021DF52394CB9700654DC6 /* GKCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKCycleScrollView.h; sourceTree = "<group>"; };
-		B5021DF62394CB9700654DC6 /* GKCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKCycleScrollView.m; sourceTree = "<group>"; };
-		B5021DF72394CB9700654DC6 /* GKCycleScrollViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKCycleScrollViewCell.m; sourceTree = "<group>"; };
-		B5021DFB2394CBF700654DC6 /* testViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testViewController.h; sourceTree = "<group>"; };
-		B5021DFC2394CBF700654DC6 /* testViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testViewController.m; sourceTree = "<group>"; };
+		B5021E8C239528D600654DC6 /* GKCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKCycleScrollView.h; sourceTree = "<group>"; };
+		B5021E8D239528D600654DC6 /* GKCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKCycleScrollView.m; sourceTree = "<group>"; };
+		B5021E8E239528D600654DC6 /* GKCycleScrollViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKCycleScrollViewCell.h; sourceTree = "<group>"; };
+		B5021E8F239528D600654DC6 /* GKCycleScrollViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKCycleScrollViewCell.m; sourceTree = "<group>"; };
+		B5021E90239528D600654DC6 /* GKPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKPageControl.h; sourceTree = "<group>"; };
+		B5021E91239528D600654DC6 /* GKPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKPageControl.m; sourceTree = "<group>"; };
+		B5021E96239528F300654DC6 /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
+		B5021E97239528F300654DC6 /* TAAbstractDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAbstractDotView.m; sourceTree = "<group>"; };
+		B5021E98239528F300654DC6 /* TAAnimatedDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAnimatedDotView.h; sourceTree = "<group>"; };
+		B5021E99239528F300654DC6 /* TAAnimatedDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAnimatedDotView.m; sourceTree = "<group>"; };
+		B5021E9A239528F300654DC6 /* TADotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TADotView.h; sourceTree = "<group>"; };
+		B5021E9B239528F300654DC6 /* TADotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TADotView.m; sourceTree = "<group>"; };
+		B5021E9C239528F300654DC6 /* TAPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAPageControl.h; sourceTree = "<group>"; };
+		B5021E9D239528F300654DC6 /* TAPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPageControl.m; sourceTree = "<group>"; };
+		B5021EA223952CB900654DC6 /* ToolViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolViewController.h; sourceTree = "<group>"; };
+		B5021EA323952CB900654DC6 /* ToolViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolViewController.m; sourceTree = "<group>"; };
 		B502BEEC23779EB200F6C81A /* PersonalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalViewController.h; sourceTree = "<group>"; };
 		B502BEED23779EB200F6C81A /* PersonalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
 		B502BEF42377A8E800F6C81A /* PersonalHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalHeadView.h; sourceTree = "<group>"; };
@@ -197,15 +212,32 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		B5021DFA2394CB9C00654DC6 /* Scroll View */ = {
+		B5021E8B239528D600654DC6 /* GKCycleScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				B5021DF52394CB9700654DC6 /* GKCycleScrollView.h */,
-				B5021DF62394CB9700654DC6 /* GKCycleScrollView.m */,
-				B5021DF42394CB9600654DC6 /* GKCycleScrollViewCell.h */,
-				B5021DF72394CB9700654DC6 /* GKCycleScrollViewCell.m */,
+				B5021E8C239528D600654DC6 /* GKCycleScrollView.h */,
+				B5021E8D239528D600654DC6 /* GKCycleScrollView.m */,
+				B5021E8E239528D600654DC6 /* GKCycleScrollViewCell.h */,
+				B5021E8F239528D600654DC6 /* GKCycleScrollViewCell.m */,
+				B5021E90239528D600654DC6 /* GKPageControl.h */,
+				B5021E91239528D600654DC6 /* GKPageControl.m */,
 			);
-			path = "Scroll View";
+			path = GKCycleScrollView;
+			sourceTree = "<group>";
+		};
+		B5021E95239528F300654DC6 /* PageControl */ = {
+			isa = PBXGroup;
+			children = (
+				B5021E96239528F300654DC6 /* TAAbstractDotView.h */,
+				B5021E97239528F300654DC6 /* TAAbstractDotView.m */,
+				B5021E98239528F300654DC6 /* TAAnimatedDotView.h */,
+				B5021E99239528F300654DC6 /* TAAnimatedDotView.m */,
+				B5021E9A239528F300654DC6 /* TADotView.h */,
+				B5021E9B239528F300654DC6 /* TADotView.m */,
+				B5021E9C239528F300654DC6 /* TAPageControl.h */,
+				B5021E9D239528F300654DC6 /* TAPageControl.m */,
+			);
+			path = PageControl;
 			sourceTree = "<group>";
 		};
 		B502BEF92377B69D00F6C81A /* Personal View */ = {
@@ -254,9 +286,8 @@
 				B5AA639D2388416000FACF9D /* OwerViewController.h */,
 				B5AA639E2388416000FACF9D /* OwerViewController.m */,
 				B5AA639F2388416000FACF9D /* OwerViewController.xib */,
-				B5021DFB2394CBF700654DC6 /* testViewController.h */,
-				B5021DFC2394CBF700654DC6 /* testViewController.m */,
-				B5021DFA2394CB9C00654DC6 /* Scroll View */,
+				B5021E95239528F300654DC6 /* PageControl */,
+				B5021E8B239528D600654DC6 /* GKCycleScrollView */,
 			);
 			path = "Photo View";
 			sourceTree = "<group>";
@@ -271,6 +302,8 @@
 				B5AA63972388317B00FACF9D /* LCProgressHUD.m */,
 				B5AA639A2388323400FACF9D /* MBProgressHUD.h */,
 				B5AA639B2388323400FACF9D /* MBProgressHUD.m */,
+				B5021EA223952CB900654DC6 /* ToolViewController.h */,
+				B5021EA323952CB900654DC6 /* ToolViewController.m */,
 			);
 			path = "Tool Group";
 			sourceTree = "<group>";
@@ -532,12 +565,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-nuonuo/Pods-nuonuo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -552,33 +587,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5021E93239528D600654DC6 /* GKCycleScrollViewCell.m in Sources */,
+				B5021E9E239528F300654DC6 /* TAAbstractDotView.m in Sources */,
 				B5AA63992388317C00FACF9D /* LCProgressHUD.m in Sources */,
 				B5EC4C122376EA3F00950CFD /* LoginViewController.m in Sources */,
 				B5EAC4DC238697F600373E21 /* SearchViewController.m in Sources */,
 				B54468552393AD0F00F82BD6 /* MessageTabelViewController.m in Sources */,
-				B5021DF82394CB9700654DC6 /* GKCycleScrollView.m in Sources */,
 				B5EC4C172376EBBF00950CFD /* ForgetViewController.m in Sources */,
+				B5021E94239528D600654DC6 /* GKPageControl.m in Sources */,
 				B5EAC4FA2387A32400373E21 /* BindViewController.m in Sources */,
 				B5AA639C2388323400FACF9D /* MBProgressHUD.m in Sources */,
 				B54468592393B9CF00F82BD6 /* MessageTableViewCell.m in Sources */,
 				B5EC4BE82376E5BE00950CFD /* main.m in Sources */,
 				B5AA63A02388416000FACF9D /* OwerViewController.m in Sources */,
+				B5021EA423952CB900654DC6 /* ToolViewController.m in Sources */,
 				B5EC4BDA2376E5BB00950CFD /* AppDelegate.m in Sources */,
 				B5EC4C1F2376F69200950CFD /* MainViewController.m in Sources */,
 				B502BEF62377A8E800F6C81A /* PersonalHeadView.m in Sources */,
 				B5EAC4F22386F62000373E21 /* SelectPhotoViewController.m in Sources */,
-				B5021DF92394CB9700654DC6 /* GKCycleScrollViewCell.m in Sources */,
+				B5021EA1239528F300654DC6 /* TAPageControl.m in Sources */,
 				B5EC4C1B2376F3D700950CFD /* UserInfo.m in Sources */,
+				B5021E9F239528F300654DC6 /* TAAnimatedDotView.m in Sources */,
 				B5EAC4E82386E9DE00373E21 /* UIViewController+XHPhoto.m in Sources */,
 				B5EC4C0D2376E98800950CFD /* RegistViewController.m in Sources */,
 				B5C5AFFC237715E20047A1FD /* TabBarViewController.m in Sources */,
 				B5EAC4DF2386996600373E21 /* LxxInterfaceConnection.m in Sources */,
 				B5EAC4F623876C5400373E21 /* SettingTableViewController.m in Sources */,
+				B5021E92239528D600654DC6 /* GKCycleScrollView.m in Sources */,
 				B502BEFD2377B6CA00F6C81A /* PersonalTableViewCell.m in Sources */,
 				B5EAC4E52386E73700373E21 /* friendsViewController.m in Sources */,
 				B5EAC4E22386E70A00373E21 /* newsViewController.m in Sources */,
 				B502BEEE23779EB200F6C81A /* PersonalViewController.m in Sources */,
-				B5021DFD2394CBF700654DC6 /* testViewController.m in Sources */,
+				B5021EA0239528F300654DC6 /* TADotView.m in Sources */,
 				B5C5AFF5237712760047A1FD /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

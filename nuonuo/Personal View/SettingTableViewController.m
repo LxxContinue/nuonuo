@@ -9,12 +9,7 @@
 #import "SettingTableViewController.h"
 #import "LxxInterfaceConnection.h"
 
-#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
-#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
-
-#define kIs_iphone (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-#define kIs_iPhoneX SCREEN_WIDTH >=375.0f && SCREEN_HEIGHT >=812.0f&& kIs_iphone
-#define kStatusBarHeight (CGFloat)(kIs_iPhoneX?(44.0):(20.0))
+#import "ToolViewController.h"
 
 @interface SettingTableViewController ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 
@@ -92,7 +87,7 @@
     
     [dic setObject:self.qqStr forKey:@"qq"];
     [dic setObject:self.weixinStr forKey:@"weixin"];
-    [dic setObject:@"2040" forKey:@"headPicId"];
+    //[dic setObject:@"2041" forKey:@"headPicId"];
     
     
 //    [dic setObject:self.qqStr forKey:@"qq"];

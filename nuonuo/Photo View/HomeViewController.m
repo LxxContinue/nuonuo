@@ -15,7 +15,6 @@
 
 #import "OwerViewController.h"
 
-#import "testViewController.h"
 
 @interface HomeViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIView *backView;
@@ -48,28 +47,17 @@
 #pragma mark - Private DataConfiguration
 - (void)dataConfiguration{
     
-    
-    
     _backView.layer.shadowOffset = CGSizeMake(0, 0);
     _backView.layer.shadowOpacity=0.8f;
     _backView.layer.shadowColor=[UIColor grayColor].CGColor;
-    
-//    _idTextField.layer.shadowOffset = CGSizeMake(3, 3);
-//    _idTextField.layer.shadowOpacity=0.4f;
-//    _idTextField.layer.shadowColor=[UIColor grayColor].CGColor;
-    
+
     _idTextField.keyboardType = UIReturnKeyDefault;
     _idTextField.delegate = self;
     _idTextField.textColor = [UIColor blackColor];
     _idTextField.placeholder = @"请输入车牌号";
     
-//    _idTextField.layer.borderWidth = textFieldBorderWidth;
-//    CGRect rect = _idTextField.frame;
-//    rect.size.height = 100;
-//    _idTextField.frame = rect;
-    
-    
 }
+
 - (IBAction)photoAction:(UIButton *)sender {
     NSLog(@"开始拍照");
 
@@ -77,19 +65,31 @@
 }
 
 - (IBAction)confirmAction:(UIButton *)sender {
+    NSString *inputCarID = self.idTextField.text;
+    NSString *getStr = [NSString stringWithFormat:@"photo/%@",inputCarID];
     
-//    SearchViewController *svc = [[SearchViewController alloc]init];
-//    svc.hidesBottomBarWhenPushed = YES;
-//    [self.navigationController pushViewController:svc animated:YES];
-    
-//    OwerViewController *ovc = [[OwerViewController alloc]init];
-//    ovc.hidesBottomBarWhenPushed = YES;
-//    [self.navigationController pushViewController:ovc animated:YES];
-    
-    testViewController *svc = [[testViewController alloc]init];
-    svc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:svc animated:YES];
-
+    NSMutableDictionary * parm = [[NSMutableDictionary alloc]init];
+    LxxInterfaceConnection *connect = [[LxxInterfaceConnection alloc] init];
+    [connect connetNetWithGetMethod:getStr parms:parm block:^(int fail,NSString *dataMessage,NSDictionary *dictionary) {
+        if (fail ==0) {
+            NSLog(@"search dataMessage：%@",dataMessage);
+            
+            //获取匹配到的车信息
+            
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            arr = [dictionary objectForKey:@"data"];
+            NSLog(@"search arr：%@",arr);
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                SearchViewController *svc = [[SearchViewController alloc]init];
+                svc.infoArr = arr;
+                svc.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:svc animated:YES];
+                
+            });
+        }
+    }];
 }
 
 - (void)chooseHeaderImage {

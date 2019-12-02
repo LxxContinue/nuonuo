@@ -10,17 +10,13 @@
 #import "MessageTableViewCell.h"
 #import "LxxInterfaceConnection.h"
 
+#import "ToolViewController.h"
+
 #import "SDWebImage/UIImageView+WebCache.h"
 
 @interface MessageTabelViewController ()<UITableViewDataSource,UITableViewDelegate>
 
-#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
-#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
-#define fontColor [UIColor colorWithRed:25.0/255 green:0 blue:131.0/255 alpha:1.0]
 
-#define kIs_iphone (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-#define kIs_iPhoneX SCREEN_WIDTH >=375.0f && SCREEN_HEIGHT >=812.0f&& kIs_iphone
-#define kStatusBarHeight (CGFloat)(kIs_iPhoneX?(44.0):(20.0))
 
 @property (nonatomic, strong) UIView * menuView;
 @property (nonatomic, strong) UIButton *firstButton;
@@ -81,12 +77,12 @@
     //firstButton
     self.firstButton = [[UIButton alloc] initWithFrame:CGRectMake(0,0,self.menuWidth,self.menuHeight)];
     self.firstButton.backgroundColor = [UIColor whiteColor];
-    [self.firstButton setTitleColor:fontColor forState:UIControlStateHighlighted];
+    [self.firstButton setTitleColor:lxxColor forState:UIControlStateHighlighted];
     [self.firstButton addTarget:self action:@selector(sendMessage) forControlEvents:UIControlEventTouchUpInside];
     
     self.firstLabel = [[UILabel alloc] initWithFrame:CGRectMake(_menuWidth/2,0,60,self.menuHeight)];
     self.firstLabel.text = @"发送";
-    self.firstLabel.textColor = fontColor;
+    self.firstLabel.textColor = lxxColor;
     self.firstLabel.font = [UIFont systemFontOfSize:20];
     self.firstLabel.textAlignment = NSTextAlignmentCenter;
     [self.firstButton addSubview:self.firstLabel];
@@ -96,7 +92,7 @@
     [self.firstButton addSubview:firstView];
     
     UILabel *firstline= [[UILabel alloc] initWithFrame:CGRectMake(25, self.menuHeight-1.4, self.menuWidth-50, 1.4)];
-    firstline.layer.borderColor = fontColor.CGColor;
+    firstline.layer.borderColor = lxxColor.CGColor;
     firstline.layer.borderWidth = 0.7;
     [self.lineArr addObject:firstline];
     [self.firstButton addSubview:firstline];
@@ -108,10 +104,10 @@
     self.secondButton.backgroundColor = [UIColor whiteColor];
     [self.secondButton addTarget:self action:@selector(receiveMessage) forControlEvents:UIControlEventTouchUpInside];
     self.secondLabel = [[UILabel alloc] initWithFrame:CGRectMake(_menuWidth/2,0,60,self.menuHeight)];
-    [self.secondButton setTitleColor:fontColor forState:UIControlStateHighlighted];
+    [self.secondButton setTitleColor:lxxColor forState:UIControlStateHighlighted];
     
     self.secondLabel.text =  @"收到";
-    self.secondLabel.textColor = fontColor;
+    self.secondLabel.textColor = lxxColor;
     self.secondLabel.font = [UIFont systemFontOfSize:20];
     self.secondLabel.textAlignment = NSTextAlignmentCenter;
     [self.secondButton addSubview:self.secondLabel];
@@ -121,7 +117,7 @@
     [self.secondButton addSubview:secondView];
     
     UILabel *secondline= [[UILabel alloc] initWithFrame:CGRectMake(25, self.menuHeight-1.4, self.menuWidth-50, 1.4)];
-    secondline.layer.borderColor = fontColor.CGColor;
+    secondline.layer.borderColor = lxxColor.CGColor;
     secondline.layer.borderWidth = 0.7;
     [self.lineArr addObject:secondline];
     [self.secondButton addSubview:secondline];
