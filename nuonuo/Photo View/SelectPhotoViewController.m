@@ -39,6 +39,10 @@
 }
 
 - (IBAction)confirmAction:(UIButton *)sender {
+    if([self.idLabel.text isEqualToString:@"未能识别车牌，请重试"]||[self.idLabel.text isEqualToString:@"车牌号"]){
+        return;
+    }
+    
     NSString *inputCarID = [NSString stringWithFormat:@"%@",self.idLabel.text];;
     NSString *getStr = [NSString stringWithFormat:@"photo/%@",inputCarID];
     
@@ -55,10 +59,19 @@
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 
-                SearchViewController *svc = [[SearchViewController alloc]init];
-                svc.infoArr = arr;
-                svc.hidesBottomBarWhenPushed = YES;
-                [self.navigationController pushViewController:svc animated:YES];
+                if(arr.count == 0){//无相关信息
+                    UIAlertController *sorryAlert = [UIAlertController alertControllerWithTitle:nil message:@"sorry~未找到该车主呢" preferredStyle:UIAlertControllerStyleAlert];
+                    
+                    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:nil];
+                    [sorryAlert addAction:confirmAction];
+                    [self presentViewController:sorryAlert animated:YES completion:nil];
+                    
+                }else{
+                    SearchViewController *svc = [[SearchViewController alloc]init];
+                    svc.infoArr = arr;
+                    svc.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:svc animated:YES];
+                }
                 
             });
         }
@@ -152,8 +165,8 @@
                                                                     break;
                                                                 }
                                                             }
-                                                            if([self.idLabel.text isEqualToString:@"车牌"]){
-                                                                self.idLabel.text = @"未识别车牌";
+                                                            if([self.idLabel.text isEqualToString:@"车牌号"]){
+                                                                self.idLabel.text = @"未能识别车牌，请重试";
                                                             }
                                                             
                                                             

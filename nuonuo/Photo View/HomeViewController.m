@@ -55,7 +55,7 @@
     _idTextField.delegate = self;
     _idTextField.textColor = [UIColor blackColor];
     _idTextField.placeholder = @"请输入车牌号";
-    
+
 }
 
 - (IBAction)photoAction:(UIButton *)sender {
@@ -65,9 +65,11 @@
 }
 
 - (IBAction)confirmAction:(UIButton *)sender {
-    NSString *inputCarID = self.idTextField.text;
-    NSString *getStr = [NSString stringWithFormat:@"photo/%@",inputCarID];
+    NSString *cardId = [self.idTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSLog(@"%@!",cardId);
     
+    NSString *getStr = [NSString stringWithFormat:@"photo/%@",cardId];
+
     NSMutableDictionary * parm = [[NSMutableDictionary alloc]init];
     LxxInterfaceConnection *connect = [[LxxInterfaceConnection alloc] init];
     [connect connetNetWithGetMethod:getStr parms:parm block:^(int fail,NSString *dataMessage,NSDictionary *dictionary) {
@@ -75,17 +77,26 @@
             NSLog(@"search dataMessage：%@",dataMessage);
             
             //获取匹配到的车信息
-            
             NSMutableArray *arr = [[NSMutableArray alloc]init];
             arr = [dictionary objectForKey:@"data"];
             NSLog(@"search arr：%@",arr);
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 
-                SearchViewController *svc = [[SearchViewController alloc]init];
-                svc.infoArr = arr;
-                svc.hidesBottomBarWhenPushed = YES;
-                [self.navigationController pushViewController:svc animated:YES];
+                if(arr.count == 0){//无相关信息
+                    UIAlertController *sorryAlert = [UIAlertController alertControllerWithTitle:nil message:@"sorry~未找到该车主呢" preferredStyle:UIAlertControllerStyleAlert];
+                    
+                    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:nil];
+                    [sorryAlert addAction:confirmAction];
+                    [self presentViewController:sorryAlert animated:YES completion:nil];
+                    
+                }else{
+                    SearchViewController *svc = [[SearchViewController alloc]init];
+                    svc.infoArr = arr;
+                    svc.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:svc animated:YES];
+                }
+            
                 
             });
         }
@@ -186,7 +197,6 @@
     UIGraphicsEndImageContext();
     return newImage;
 }
-
 
 #pragma mark - UITextFieldDelegate
 //点击return收起键盘
