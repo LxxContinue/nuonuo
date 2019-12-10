@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSString * sexStr;
 @property (nonatomic, strong) NSString * qqStr;
 @property (nonatomic, strong) NSString * weixinStr;
+
 @end
 
 @implementation SettingTableViewController

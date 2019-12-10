@@ -167,20 +167,11 @@
     
     NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
     dic = self.infoArr[index];
-    NSLog(@"dic: %@",dic);
-    
-    //NSString *headStr = [NSString stringWithFormat:@"%@",[dic objectForKey:@"otherPicNames"]];
-    //[cell.imageView sd_setImageWithURL:[NSURL URLWithString:headStr]];
-    
-//    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:headStr]  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-//
-//        [self.cycleScrollView reloadData];
-//    }];
-    
-    
-    NSString *headStr = [NSString stringWithFormat:@"%@",@"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2379750824,3935342609&fm=26&gp=0.jpg"];
-    
-    NSLog(@"headstr: %@",headStr);
+
+    NSArray *imageArr = [dic objectForKey:@"otherPicNames"];
+    NSString *headStr = [NSString stringWithFormat:@"%@",imageArr[0]];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:headStr] placeholderImage:[UIImage imageNamed:@""]];
+
     cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
     
     return cell;
